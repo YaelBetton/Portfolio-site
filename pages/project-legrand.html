@@ -30,6 +30,11 @@
                     <a href="../index.html#contact" class="nav-link">Contact</a>
                 </li>
             </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Basculer le thème">
+                <svg id="theme-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" class="moon-icon">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -97,14 +102,35 @@
                 </div>
 
                 <div class="project-detail-section">
-                    <h2>Compétences développées</h2>
-                    <ul class="feature-list">
-                        <li><strong>Développement Full-Stack :</strong> Conception et réalisation complète d'une application web avec frontend Vue.js et backend Node.js, gérant l'ensemble du cycle de vie du projet de A à Z</li>
-                        <li><strong>Architecture API REST :</strong> Conception d'une API RESTful structurée et documentée, avec gestion de l'authentification JWT, validation des données et versioning pour assurer l'évolutivité</li>
-                        <li><strong>Framework Vue.js :</strong> Maîtrise de Vue.js (Composition API, Vuex pour la gestion d'état, Vue Router) pour créer une SPA réactive avec composants réutilisables et maintenables</li>
-                        <li><strong>Génération de documents dynamiques :</strong> Implémentation d'un système de templates pour générer des PDF professionnels à partir de données structurées, avec mise en page automatique</li>
-                        <li><strong>Travail en contexte professionnel :</strong> Collaboration avec des utilisateurs finaux pour recueillir les besoins, itérations successives et adaptation aux retours terrain pour livrer une solution adaptée</li>
-                    </ul>
+                    <h2>Compétences BUT démontrées</h2>
+                    
+                    <div class="competence-block">
+                        <h3>Compétence C4 : Gérer des données</h3>
+                        <p><strong>Description :</strong> Développement d'une application web visant à automatiser et simplifier la création de documents techniques à destination des usines et employés chargés de l'assemblage.</p>
+                        <p><strong>Rôle personnel :</strong> Conception de la base de données relationnelle et de l'API REST en Node.js permettant de stocker et distribuer les modèles de documents, les informations produits et les accès utilisateurs.</p>
+                        <p><strong>Livrables :</strong> Modèle Conceptuel et Logique de Données (MCD/MLD), scripts de requêtes SQL (ou extraits d'API), captures d'écran du panel d'administration.</p>
+                        <div class="analyse-reflexive">
+                            <h4>Analyse réflexive</h4>
+                            <ul>
+                                <li><strong>Difficultés rencontrées :</strong> Modéliser une base de données suffisamment flexible pour s'adapter à une multitude de formulaires et de types d'outils industriels.</li>
+                                <li><strong>Savoirs acquis :</strong> J'ai appris à concevoir des API robustes capables de gérer des données dynamiques et à intégrer un système sécurisé pour différents types d'utilisateurs.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="competence-block">
+                        <h3>Compétence C5 : Conduire un projet</h3>
+                        <p><strong>Description :</strong> Projet mené dans un contexte professionnel complet exigeant de répondre concrètement à un besoin de standardisation et gain de temps (Générateur dynamique de PDF).</p>
+                        <p><strong>Rôle personnel :</strong> J'ai participé activement à chaque phase du cycle de vie du projet, du recueil des besoins jusqu'au déploiement de la solution Full-Stack, en procédant par itérations successives basées sur les retours des employés.</p>
+                        <p><strong>Livrables :</strong> Cahier des charges et spécifications, outils de planification utilisés (Tickets, Trello/Jira), et retours/validations des utilisateurs finaux.</p>
+                        <div class="analyse-reflexive">
+                            <h4>Analyse réflexive</h4>
+                            <ul>
+                                <li><strong>Difficultés rencontrées :</strong> Trouver l'équilibre entre la complexité technique pour les formats complexes et la nécessité de garder une interface intuitive pour les ouvriers.</li>
+                                <li><strong>Savoirs acquis :</strong> L'adaptation au changement, la gestion agile et la traduction exacte d'un besoin métier en composants techniques (Vue.js / Node.js).</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="project-detail-section">

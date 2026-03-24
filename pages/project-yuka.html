@@ -30,6 +30,11 @@
                     <a href="../index.html#contact" class="nav-link">Contact</a>
                 </li>
             </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Basculer le thème">
+                <svg id="theme-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" class="moon-icon">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -96,14 +101,21 @@
                 </div>
 
                 <div class="project-detail-section">
-                    <h2>Compétences développées</h2>
-                    <ul class="feature-list">
-                        <li><strong>Développement mobile cross-platform :</strong> Maîtrise de React Native pour créer une application performante compatible iOS et Android avec une base de code unique, réduisant le temps de développement de 40%</li>
-                        <li><strong>TypeScript et typage statique :</strong> Utilisation avancée de TypeScript pour garantir la robustesse du code, détecter les erreurs en amont et faciliter la maintenance avec une documentation implicite</li>
-                        <li><strong>Intégration d'APIs RESTful :</strong> Consommation de l'API Open Food Facts avec gestion asynchrone, cache des données et traitement des erreurs réseau pour une expérience utilisateur fluide</li>
-                        <li><strong>Accès aux fonctionnalités natives :</strong> Intégration de la caméra et du scanner de code-barres via des modules natifs, avec gestion des permissions utilisateur selon les standards iOS et Android</li>
-                        <li><strong>UX/UI mobile :</strong> Conception d'interfaces intuitives respectant les guidelines Material Design et iOS, optimisées pour différentes tailles d'écran et modes d'utilisation</li>
-                    </ul>
+                    <h2>Compétences BUT démontrées</h2>
+                    
+                    <div class="competence-block">
+                        <h3>Compétence C1 : Réaliser un développement d'application</h3>
+                        <p><strong>Description :</strong> Développement d'une application mobile qui scanne les codes-barres des produits alimentaires pour fournir une note de qualité selon leur composition et leurs valeurs nutritionnelles.</p>
+                        <p><strong>Rôle personnel :</strong> Développement de l'interface en React Native et TypeScript, intégration de la fonctionnalité de scan via la caméra et connexion aux API externes.</p>
+                        <p><strong>Livrables :</strong> Dépôt GitHub du projet, captures d'écran de l'application mobile en fonctionnement, vidéo de démonstration du scan.</p>
+                        <div class="analyse-reflexive">
+                            <h4>Analyse réflexive</h4>
+                            <ul>
+                                <li><strong>Difficultés rencontrées :</strong> La gestion de l'asynchronisme lors des requêtes d'API externes et le paramétrage des accès caméra sur mobile.</li>
+                                <li><strong>Savoirs acquis :</strong> J'ai consolidé mes bases en conception d'interfaces mobiles avec React Native et j'ai appris à manipuler couramment TypeScript pour un code plus robuste.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="project-detail-section">

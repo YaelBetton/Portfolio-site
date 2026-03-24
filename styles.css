@@ -312,6 +312,15 @@ section {
     letter-spacing: 2px;
 }
 
+.section-subtitle {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    margin-bottom: 20px;
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
 .section-line {
     width: 60px;
     height: 1px;

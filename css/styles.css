@@ -312,6 +312,14 @@ section {
     letter-spacing: 2px;
 }
 
+.section-subtitle {
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    font-weight: 300;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
 .section-line {
     width: 60px;
     height: 1px;
@@ -959,5 +967,296 @@ section {
 
     .stat {
         padding: 20px;
+    }
+}
+
+/* Compétences BUT */
+.competence-block {
+    background: var(--primary-white);
+    border: 1px solid var(--gray-medium);
+    padding: 30px;
+    margin-bottom: 30px;
+    transition: var(--transition);
+}
+
+.competence-block:hover {
+    box-shadow: var(--shadow-light);
+    transform: translateY(-2px);
+}
+
+.competence-block h3 {
+    font-size: 20px;
+    color: var(--primary-black);
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--gray-light);
+    padding-bottom: 10px;
+}
+
+.competence-block p {
+    margin-bottom: 12px;
+}
+
+.analyse-reflexive {
+    margin-top: 20px;
+    padding: 20px;
+    background: var(--gray-light);
+    border-left: 4px solid var(--primary-black);
+}
+
+.analyse-reflexive h4 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.analyse-reflexive ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.analyse-reflexive li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.analyse-reflexive li:before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--primary-black);
+}
+
+/* Competences Carousel Main Page */
+.competences {
+    background: var(--primary-white);
+    padding-bottom: 50px;
+}
+
+.competences-carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Excessive padding prevents the browser from clipping the transformed cards */
+    padding: 140px max(20px, calc((100vw - 1200px) / 2 + 20px)) 140px;
+    /* Negative margins remove the massive whitespace visually */
+    margin-top: -90px;
+    margin-bottom: -90px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    position: relative;
+    z-index: 5;
+    padding: 200px 100px;
+}
+.competences-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.competence-card {
+    min-width: 240px;
+    height: 360px;
+    border-radius: 20px;
+    margin-right: -100px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    box-shadow: -10px 0 20px rgba(0,0,0,0.15);
+    cursor: pointer;
+    background-color: var(--primary-black);
+    flex-shrink: 0;
+    transform-origin: bottom center;
+}
+
+.competence-card:last-child {
+    margin-right: 0;
+}
+
+/* Fan effect settings - Stronger curve */
+.competence-card:nth-child(1) { transform: rotate(-20deg) translateY(80px); z-index: 1; }
+.competence-card:nth-child(2) { transform: rotate(-10deg) translateY(30px); z-index: 2; }
+.competence-card:nth-child(3) { transform: rotate(-3deg) translateY(0px); z-index: 3; }
+.competence-card:nth-child(4) { transform: rotate(3deg) translateY(0px); z-index: 4; }
+.competence-card:nth-child(5) { transform: rotate(10deg) translateY(30px); z-index: 5; }
+.competence-card:nth-child(6) { transform: rotate(20deg) translateY(80px); z-index: 6; }
+
+/* Keep angle on hover, but scale and translate up by 40px */
+.competence-card:nth-child(1):hover { transform: rotate(-20deg) translateY(40px) scale(1.15) !important; }
+.competence-card:nth-child(2):hover { transform: rotate(-10deg) translateY(-10px) scale(1.15) !important; }
+.competence-card:nth-child(3):hover { transform: rotate(-3deg) translateY(-40px) scale(1.15) !important; }
+.competence-card:nth-child(4):hover { transform: rotate(3deg) translateY(-40px) scale(1.15) !important; }
+.competence-card:nth-child(5):hover { transform: rotate(10deg) translateY(-10px) scale(1.15) !important; }
+.competence-card:nth-child(6):hover { transform: rotate(20deg) translateY(40px) scale(1.15) !important; }
+
+.competence-card:hover {
+    z-index: 20 !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    filter: grayscale(100%);
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%);
+    z-index: 2;
+}
+
+.card-front-content {
+    position: absolute;
+    bottom: 25px;
+    left: 20px;
+    right: 20px;
+    z-index: 3;
+    color: var(--primary-white);
+}
+
+.comp-id-large {
+    font-size: 45px;
+    font-weight: 800;
+    display: block;
+    margin-bottom: 5px;
+    opacity: 0.9;
+    color: var(--primary-white);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.card-front-content h3 {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.3;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Modal Styling */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.6); 
+    backdrop-filter: blur(5px);
+    /* Flexbox centering */
+    align-items: center;
+    justify-content: center;
+}
+
+.modal[style*="display: block"] {
+    display: flex !important;
+}
+
+.modal-content {
+    background-color: var(--primary-white);
+    padding: 40px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 700px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: var(--shadow-large);
+    animation: modalScale 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes modalScale {
+    from { transform: scale(0.95) translateY(20px); opacity: 0; }
+    to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: var(--gray-dark);
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-modal:hover {
+    color: var(--primary-black);
+}
+
+#modal-body-content .modal-header-content {
+    margin-bottom: 25px;
+}
+#modal-body-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: var(--primary-black);
+}
+#modal-body-content hr {
+    border: none;
+    border-top: 1px solid var(--gray-medium);
+    margin: 20px 0;
+}
+#modal-body-content p {
+    font-size: 15px;
+    margin-bottom: 15px;
+    color: var(--gray-dark);
+    line-height: 1.6;
+}
+#modal-body-content p strong {
+    color: var(--primary-black);
+}
+
+#modal-body-content .analyse-reflexive {
+    margin-top: 25px;
+    background: var(--gray-light);
+    padding: 20px;
+    border-left: 4px solid var(--primary-black);
+    border-radius: 0 8px 8px 0;
+}
+#modal-body-content .analyse-reflexive h4 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+#modal-body-content .analyse-reflexive ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin: 0;
+}
+#modal-body-content .analyse-reflexive li {
+    margin-bottom: 10px;
+    color: var(--gray-dark);
+    line-height: 1.5;
+}
+#modal-body-content .analyse-reflexive li strong {
+    color: var(--primary-black);
+}
+
+@media (max-width: 768px) {
+    .competences-carousel {
+        padding: 20px 20px 60px;
+        justify-content: flex-start;
+    }
+    .competence-card {
+        min-width: 220px;
+        height: 320px;
+        margin-right: -70px;
+    }
+    .modal-content {
+        padding: 25px;
     }
 }

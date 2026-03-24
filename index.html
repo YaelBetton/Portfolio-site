@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
@@ -59,7 +61,7 @@
             </div>
             <div class="hero-image">
                 <div class="profile-circle">
-                        <img src="images/Photo_Cv.png" alt="Photo CV" class="profile-pic">
+                    <img src="images/Photo_Cv.png" alt="Photo CV" class="profile-pic">
                 </div>
             </div>
         </div>
@@ -82,14 +84,18 @@
                         je suis passionné par le développement d'applications et la programmation.
                     </p>
                     <p>
-                        Au fil de mes projets académiques et personnels, j'ai acquis des compétences en Python, Java, PHP, SQL, React Native, JavaScript, HTML/CSS,
-                         que j'ai mises en pratique à travers des réalisations variées, comme la création d'un jeu en Java/JavaFX ou d'une application mobile en 
-                         React Native permettant de scanner des codes-barres 
-                         et d'afficher des informations produits.
+                        Au fil de mes projets académiques et personnels, j'ai acquis des compétences en Python, Java,
+                        PHP, SQL, React Native, JavaScript, HTML/CSS,
+                        que j'ai mises en pratique à travers des réalisations variées, comme la création d'un jeu en
+                        Java/JavaFX ou d'une application mobile en
+                        React Native permettant de scanner des codes-barres
+                        et d'afficher des informations produits.
                     </p>
                     <p>
-                        J'aime concevoir des solutions qui allient clarté, efficacité et qualité de code, tout en restant attentif aux besoins des utilisateurs. 
-                        Mon objectif est de continuer à apprendre et à contribuer à des projets concrets, aussi bien dans un cadre académique que professionnel.
+                        J'aime concevoir des solutions qui allient clarté, efficacité et qualité de code, tout en
+                        restant attentif aux besoins des utilisateurs.
+                        Mon objectif est de continuer à apprendre et à contribuer à des projets concrets, aussi bien
+                        dans un cadre académique que professionnel.
                     </p>
                 </div>
                 <div class="about-stats">
@@ -107,6 +113,188 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 60px; position:relative; z-index:10; margin-bottom: 30px;">
+            <h3 class="section-subtitle">Mes Compétences BUT</h3>
+            <div class="section-line"></div>
+            <p style="color: var(--gray-dark); margin-top: 20px;">Cliquez sur une carte pour voir les détails</p>
+        </div>
+
+        <div class="competences-carousel">
+
+            <!-- Competence C1 -->
+            <div class="competence-card cursor-pointer" onclick="openCompModal(this)">
+                <div class="card-bg" style="background-image: url('images/application_yuka.png');"></div>
+                <div class="card-overlay"></div>
+                <div class="card-front-content">
+                    <span class="comp-id-large">C1</span>
+                    <h3>Réaliser une app</h3>
+                </div>
+                <div class="competence-data" style="display: none;">
+                    <div class="modal-header-content">
+                        <h2>C1 : Réaliser un développement d'application</h2>
+                        <span class="comp-project"><strong>Projet :</strong> Yuka Clone</span>
+                    </div>
+                    <p><strong>Auto-positionnement :</strong> Maîtrise avancée</p>
+                    <hr>
+                    <p><strong>Description :</strong> Application mobile scannant les codes-barres pour une note
+                        nutritionnelle.</p>
+                    <p><strong>Rôle :</strong> Dév. interface React Native et intégration API/Scanner vidéo.</p>
+                    <p><strong>Livrables :</strong> GitHub, captures d'application mobile, vidéo.</p>
+                    <div class="analyse-reflexive">
+                        <h4>Analyse réflexive</h4>
+                        <ul>
+                            <li><strong>Difficultés :</strong> Paramétrage asynchrone caméra/API sur mobile.</li>
+                            <li><strong>Savoirs :</strong> Consolidation React Native & TypeScript.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Competence C2 -->
+            <div class="competence-card cursor-pointer" onclick="openCompModal(this)">
+                <div class="card-bg" style="background-image: url('images/latice_jeu.jpg');"></div>
+                <div class="card-overlay"></div>
+                <div class="card-front-content">
+                    <span class="comp-id-large">C2</span>
+                    <h3>Optimiser des apps</h3>
+                </div>
+                <div class="competence-data" style="display: none;">
+                    <div class="modal-header-content">
+                        <h2>C2 : Optimiser des applications</h2>
+                        <span class="comp-project"><strong>Projet :</strong> Latice</span>
+                    </div>
+                    <p><strong>Auto-positionnement :</strong> Autonomie</p>
+                    <hr>
+                    <p><strong>Description :</strong> Jeu stratégique Java avec validation complexe des coups.</p>
+                    <p><strong>Rôle :</strong> Implémentation algorithmique de validation MVC en JavaFX.</p>
+                    <p><strong>Livrables :</strong> UML, extraits de code, exécutable.</p>
+                    <div class="analyse-reflexive">
+                        <h4>Analyse réflexive</h4>
+                        <ul>
+                            <li><strong>Difficultés :</strong> Éviter les calculs redondants de fin de partie.</li>
+                            <li><strong>Savoirs :</strong> POO avancée, structures statiques et algorithmique.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Competence C3 -->
+            <div class="competence-card cursor-pointer" onclick="openCompModal(this)">
+                <div class="card-bg" style="background-image: url('images/reseau_image.png');"></div>
+                <div class="card-overlay"></div>
+                <div class="card-front-content">
+                    <span class="comp-id-large">C3</span>
+                    <h3>Administrer des systèmes</h3>
+                </div>
+                <div class="competence-data" style="display: none;">
+                    <div class="modal-header-content">
+                        <h2>C3 : Administrer des systèmes</h2>
+                        <span class="comp-project"><strong>Projet :</strong> À définir (SAE / TP)</span>
+                    </div>
+                    <p><strong>Auto-positionnement :</strong> À compléter</p>
+                    <hr>
+                    <p><strong>Description :</strong> Installation, configuration et sécurisation de systèmes / réseaux.
+                    </p>
+                    <p><strong>Rôle :</strong> Déploiement de conteneurs Docker, bases système sous Linux.</p>
+                    <p><strong>Livrables :</strong> Dockerfile, documentation technique, scripts d'installation.</p>
+                    <div class="analyse-reflexive">
+                        <h4>Analyse réflexive</h4>
+                        <ul>
+                            <li><strong>Difficultés :</strong> Comprendre les concepts de réseaux virtuels.</li>
+                            <li><strong>Savoirs :</strong> Notions de virtualisation, conteneurisation et gestion de
+                                dépendances.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Competence C4 -->
+            <div class="competence-card cursor-pointer" onclick="openCompModal(this)">
+                <div class="card-bg" style="background-image: url('images/legrand_image.jpg');"></div>
+                <div class="card-overlay"></div>
+                <div class="card-front-content">
+                    <span class="comp-id-large">C4</span>
+                    <h3>Gérer des données</h3>
+                </div>
+                <div class="competence-data" style="display: none;">
+                    <div class="modal-header-content">
+                        <h2>C4 : Gérer des données</h2>
+                        <span class="comp-project"><strong>Projet :</strong> LeGrand</span>
+                    </div>
+                    <p><strong>Auto-positionnement :</strong> Autonomie</p>
+                    <hr>
+                    <p><strong>Description :</strong> App web Node.js/Vue.js pour création de documents techniques.</p>
+                    <p><strong>Rôle :</strong> Modélisation de la BDD et réalisation de l'API REST.</p>
+                    <p><strong>Livrables :</strong> MCD/MLD, scripts de requêtes SQL, interface admin.</p>
+                    <div class="analyse-reflexive">
+                        <h4>Analyse réflexive</h4>
+                        <ul>
+                            <li><strong>Difficultés :</strong> Modéliser la flexibilité des formulaires dynamiques.</li>
+                            <li><strong>Savoirs :</strong> Conception BDD robuste et création API Rest.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Competence C5 -->
+            <div class="competence-card cursor-pointer" onclick="openCompModal(this)">
+                <div class="card-bg" style="background-image: url('images/Logo_Legrand.png');"></div>
+                <div class="card-overlay"></div>
+                <div class="card-front-content">
+                    <span class="comp-id-large">C5</span>
+                    <h3>Conduire un projet</h3>
+                </div>
+                <div class="competence-data" style="display: none;">
+                    <div class="modal-header-content">
+                        <h2>C5 : Conduire un projet</h2>
+                        <span class="comp-project"><strong>Projet :</strong> LeGrand</span>
+                    </div>
+                    <p><strong>Auto-positionnement :</strong> Autonomie</p>
+                    <hr>
+                    <p><strong>Description :</strong> Projet pro (alternance/stage) mené de A à Z : générateur PDF.</p>
+                    <p><strong>Rôle :</strong> Recueil des besoins, planification, itérations utilisateurs.</p>
+                    <p><strong>Livrables :</strong> Cahier des charges, tickets Jira/Trello, releases.</p>
+                    <div class="analyse-reflexive">
+                        <h4>Analyse réflexive</h4>
+                        <ul>
+                            <li><strong>Difficultés :</strong> Compromis entre technologie et facilité terrain.</li>
+                            <li><strong>Savoirs :</strong> Méthodes agiles, relation client, gestion dev full-stack.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Competence C6 -->
+            <div class="competence-card cursor-pointer" onclick="openCompModal(this)">
+                <div class="card-bg" style="background-image: url('images/minijeuImage.jpg');"></div>
+                <div class="card-overlay"></div>
+                <div class="card-front-content">
+                    <span class="comp-id-large">C6</span>
+                    <h3>Collaborer</h3>
+                </div>
+                <div class="competence-data" style="display: none;">
+                    <div class="modal-header-content">
+                        <h2>C6 : Collaborer</h2>
+                        <span class="comp-project"><strong>Projet :</strong> MiniJeux</span>
+                    </div>
+                    <p><strong>Auto-positionnement :</strong> Maîtrise partielle</p>
+                    <hr>
+                    <p><strong>Description :</strong> Groupe de dev pour mini-jeux Python (Morpion, IA, etc.).</p>
+                    <p><strong>Rôle :</strong> Dev en équipe, versioning, réunions techniques.</p>
+                    <p><strong>Livrables :</strong> Pull requests, historique Git, Code bots IA.</p>
+                    <div class="analyse-reflexive">
+                        <h4>Analyse réflexive</h4>
+                        <ul>
+                            <li><strong>Difficultés :</strong> Gérer les conflits de code sur Github.</li>
+                            <li><strong>Savoirs :</strong> Commandes Git, organisation équipe, revues de code.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -157,7 +345,7 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Projets</h2>
-                <div class="section-line"></div> 
+                <div class="section-line"></div>
             </div>
             <div class="projects-grid">
                 <a href="pages/project-latice.html" class="project-card">
@@ -167,7 +355,8 @@
                     <div class="project-content">
                         <h3 class="project-title">Latice</h3>
                         <p class="project-description">
-                            Chaque joueur place ses tuiles sur un plateau en les associant par couleur ou symbole à celles déjà posées. Le but est de se débarrasser de toutes ses tuiles le premier,
+                            Chaque joueur place ses tuiles sur un plateau en les associant par couleur ou symbole à
+                            celles déjà posées. Le but est de se débarrasser de toutes ses tuiles le premier,
                             en utilisant stratégie et anticipation.
                         </p>
                         <div class="project-tech">
@@ -184,7 +373,8 @@
                     <div class="project-content">
                         <h3 class="project-title">Yuka Clone</h3>
                         <p class="project-description">
-                            En scannant le code-barres d'un produit, Yuka fournit une note de qualité basée sur la composition (valeurs nutritionnelles, additifs, ingrédients).
+                            En scannant le code-barres d'un produit, Yuka fournit une note de qualité basée sur la
+                            composition (valeurs nutritionnelles, additifs, ingrédients).
                         </p>
                         <div class="project-tech">
                             <span>React Native</span>
@@ -200,8 +390,9 @@
                     <div class="project-content">
                         <h3 class="project-title">LeGrand</h3>
                         <p class="project-description">
-                            Développement d'une application visant à simplifier la création de documents pour les employés chargés de l'assemblage et de la mise
-                             en œuvre des outils et produits.
+                            Développement d'une application visant à simplifier la création de documents pour les
+                            employés chargés de l'assemblage et de la mise
+                            en œuvre des outils et produits.
                         </p>
                         <div class="project-tech">
                             <span>Vue.js</span>
@@ -218,8 +409,9 @@
                     <div class="project-content">
                         <h3 class="project-title">MiniJeux</h3>
                         <p class="project-description">
-                        Développement de plusieurs mini-jeux en Python, incluant un jeu de devinettes, un morpion, et le jeu des allumettes 
-                        avec l'ajout de robots de différents niveaux de difficulté.
+                            Développement de plusieurs mini-jeux en Python, incluant un jeu de devinettes, un morpion,
+                            et le jeu des allumettes
+                            avec l'ajout de robots de différents niveaux de difficulté.
                         </p>
                         <div class="project-tech">
                             <span>Python</span>
@@ -276,7 +468,15 @@
             </div>
         </div>
     </section>
+    <!-- Competence Modal -->
+    <div id="compModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeCompModal()">&times;</span>
+            <div id="modal-body-content"></div>
+        </div>
+    </div>
 
     <script src="js/script.js"></script>
 </body>
+
 </html>
