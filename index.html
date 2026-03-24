@@ -7,6 +7,7 @@
     <title>Portfolio - Yaël Betton</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 </head>
 
 <body>
@@ -123,7 +124,7 @@
 
         <div class="competences-carousel">
 
-            <!-- Competence C1 -->
+            <!-- Competence C1 – AC11.04 -->
             <div class="competence-card cursor-pointer" onclick="openCompModal(this)">
                 <div class="card-bg" style="background-image: url('images/application_yuka.png');"></div>
                 <div class="card-overlay"></div>
@@ -134,27 +135,31 @@
                 <div class="competence-data" style="display: none;">
                     <div class="modal-header-content">
                         <h2>C1 : Réaliser un développement d'application</h2>
-                        <span class="comp-project"><strong>Projet :</strong> Yuka Clone</span>
+                        <span class="comp-ac">AC11.04 – Développer des interfaces utilisateur</span>
+                        <span class="comp-project-row"><span class="comp-project-label">Projet :</span> Yuka Clone – Application mobile React Native / TypeScript</span>
                     </div>
-                    <p><strong>Auto-positionnement :</strong> Maîtrise avancée</p>
+                    <p><strong>Niveau estimé :</strong> <strong>4</strong> – <span class="softskill-tag">Autonomie</span></p>
                     <hr>
-                    <p><strong>Description :</strong> Application mobile scannant les codes-barres pour une note
-                        nutritionnelle.</p>
-                    <p><strong>Rôle :</strong> Dév. interface React Native et intégration API/Scanner vidéo.</p>
-                    <p><strong>Livrables :</strong> GitHub, captures d'application mobile, vidéo.</p>
+                    <p><strong>Description :</strong> Dans le cadre d'un projet personnel, j'ai développé un clone de l'application Yuka en React Native et TypeScript. L'objectif était de concevoir une interface mobile complète permettant à l'utilisateur de scanner un code-barres et d'obtenir instantanément les informations nutritionnelles d'un produit alimentaire (score de qualité, additifs, alternatives plus saines). L'application devait être fluide, intuitive et fonctionnelle sur iOS et Android à partir d'une base de code unique.</p>
+                    <p><strong>Mon rôle :</strong> J'ai conçu et développé l'intégralité de l'interface utilisateur : la page d'accueil, l'écran de scan via la caméra native, l'affichage des données nutritionnelles avec un code couleur visuel (excellent / bon / moyen / mauvais), la liste des additifs avec leur niveau de risque, et les suggestions d'alternatives. J'ai respecté les guidelines Material Design et iOS pour garantir une expérience cohérente selon la plateforme. La gestion asynchrone des appels à l'API Open Food Facts a également été intégrée avec retours visuels (chargement, erreur, données incomplètes).</p>
                     <div class="analyse-reflexive">
                         <h4>Analyse réflexive</h4>
-                        <ul>
-                            <li><strong>Difficultés :</strong> Paramétrage asynchrone caméra/API sur mobile.</li>
-                            <li><strong>Savoirs :</strong> Consolidation React Native & TypeScript.</li>
-                        </ul>
+                        <p>Le principal défi était de transformer des données brutes parfois incomplètes (produits mal renseignés dans Open Food Facts) en une interface claire et compréhensible pour n'importe quel utilisateur. Cela m'a appris à toujours penser du point de vue de l'utilisateur final, pas seulement du point de vue technique. Sur le plan des softskills, ce projet a développé ma rigueur (gérer tous les cas limites d'affichage) et ma capacité d'adaptation : les données de l'API étaient imprévisibles, il fallait sans cesse ajuster l'interface pour rester lisible. J'ai aussi renforcé mon sens de l'esthétique et de l'ergonomie, conscient qu'une bonne application, c'est avant tout une application qu'on comprend en trois secondes.</p>
+                    </div>
+                    <div class="livrables-section">
+                        <span class="livrables-title">Livrables</span>
+                        <div class="livrables-btns">
+                            <a href="https://github.com/YaelBetton/Yuka-android-clone" target="_blank" rel="noopener" class="livrable-btn livrable-btn--link">🔗 Code source GitHub</a>
+                            <a href="https://github.com/YaelBetton/Yuka-android-clone/blob/main/README.md" target="_blank" rel="noopener" class="livrable-btn livrable-btn--link">&#128196; README</a>
+                            <span class="livrable-btn">&#128242; App mobile iOS / Android</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Competence C2 -->
+            <!-- Competence C2 – AC12.03 -->
             <div class="competence-card cursor-pointer" onclick="openCompModal(this)">
-                <div class="card-bg" style="background-image: url('images/latice_jeu.jpg');"></div>
+                <div class="card-bg" style="background-image: url('images/optimisation_image.jpg');"></div>
                 <div class="card-overlay"></div>
                 <div class="card-front-content">
                     <span class="comp-id-large">C2</span>
@@ -163,22 +168,27 @@
                 <div class="competence-data" style="display: none;">
                     <div class="modal-header-content">
                         <h2>C2 : Optimiser des applications</h2>
-                        <span class="comp-project"><strong>Projet :</strong> Latice</span>
+                        <span class="comp-ac">AC12.03 – Formaliser et mettre en œuvre des outils mathématiques pour l'informatique</span>
+                        <span class="comp-project-row"><span class="comp-project-label">Projet :</span> MiniJeux – Collection de jeux en Python avec IA (Morpion, Allumettes, Devinettes)</span>
                     </div>
-                    <p><strong>Auto-positionnement :</strong> Autonomie</p>
+                    <p><strong>Niveau estimé :</strong> <strong>3</strong> – <span class="softskill-tag">Autonomie</span></p>
                     <hr>
-                    <p><strong>Description :</strong> Jeu stratégique Java avec validation complexe des coups.</p>
-                    <p><strong>Rôle :</strong> Implémentation algorithmique de validation MVC en JavaFX.</p>
-                    <p><strong>Livrables :</strong> UML, extraits de code, exécutable.</p>
+                    <p><strong>Description :</strong> Dans le cadre d'un projet Python, j'ai développé une collection de mini-jeux intégrant des robots à plusieurs niveaux de difficulté. Pour le morpion, le robot "niveau difficile" devait jouer de façon optimale, ce qui impliquait d'implémenter un vrai algorithme mathématique de théorie des jeux. Pour le jeu des allumettes, la stratégie gagnante repose sur une propriété mathématiqu                    <p><strong>Mon rôle :</strong> J'ai conçu et implémenté l'algorithme Minimax pour le bot difficile du morpion : l'algorithme explore récursivement tous les états possibles du jeu, évalue chaque issue (victoire, défaite, nul) et remonte le coup optimal. J'ai également modélisé la stratégie gagnante du jeu des allumettes basée sur la congruence modulo (n mod (k+1) = 0), pour le bot niveau difficile, et introduit volontairement des erreurs probabilistes pour les bots de niveau inférieur. Les scores et statistiques ont été persistés en JSON.</p>
                     <div class="analyse-reflexive">
                         <h4>Analyse réflexive</h4>
-                        <ul>
-                            <li><strong>Difficultés :</strong> Éviter les calculs redondants de fin de partie.</li>
-                            <li><strong>Savoirs :</strong> POO avancée, structures statiques et algorithmique.</li>
-                        </ul>
+                        <p>La difficulté principale a été de comprendre le fonctionnement de Minimax avant de l'implémenter : il fallait modéliser l'arbre des états, attribuer des scores aux feuilles et propager ces scores vers la racine. Ce n'est pas trivial à implémenter pour la première fois. Sur le plan des softskills, ce projet a exigé beaucoup de perspévérance : comprendre un algorithme sur le papier est une chose, le déboguer dans une récursion profonde en est une autre. Il a aussi développé ma capacité d'abstraction, c'est-à-dire ma faculté à modéliser un problème concret (un jeu) avec des outils formels (graphes, récursion, modulos) avant de coder.</p>
+                    </div>
+                    <div class="livrables-section">
+                        <span class="livrables-title">Livrables</span>
+                        <div class="livrables-btns">
+                            <a href="https://github.com/YaelBetton/MiniGames" target="_blank" rel="noopener" class="livrable-btn livrable-btn--link">🔗 Code source GitHub</a>
+                            <span class="livrable-btn">&#128196; README algorithmes</span>
+                            <span class="livrable-btn">&#127918; App Python 3 jeux / 3 niveaux</span>
+                        </div>
                     </div>
                 </div>
             </div>
+
 
             <!-- Competence C3 -->
             <div class="competence-card cursor-pointer" onclick="openCompModal(this)">
@@ -191,56 +201,35 @@
                 <div class="competence-data" style="display: none;">
                     <div class="modal-header-content">
                         <h2>C3 : Administrer des systèmes</h2>
-                        <span class="comp-project"><strong>Projet :</strong> À définir (SAE / TP)</span>
+                        <span class="comp-ac">AC13.03 – Installer et configurer un système d'exploitation et des outils de développement</span>
+                        <span class="comp-project-row"><span class="comp-project-label">Projet :</span> SAE S1.03 – Installation et configuration d'un environnement Debian sous VirtualBox</span>
                     </div>
-                    <p><strong>Auto-positionnement :</strong> À compléter</p>
+                    <p><strong>Niveau estimé :</strong> <strong>3</strong> – <span class="softskill-tag">Autonomie</span></p>
+                    <p style="font-size:13px; color:var(--gray-dark); margin-top:-8px;">Équipe : Betton Yaël, Sacristan Thurian, Bastide Rémi – Groupe G2B, BUT 1</p>
                     <hr>
-                    <p><strong>Description :</strong> Installation, configuration et sécurisation de systèmes / réseaux.
-                    </p>
-                    <p><strong>Rôle :</strong> Déploiement de conteneurs Docker, bases système sous Linux.</p>
-                    <p><strong>Livrables :</strong> Dockerfile, documentation technique, scripts d'installation.</p>
+                    <p><strong>Description :</strong> Dans le cadre de la SAE S1.03, notre équipe a installé et configuré de A à Z un environnement de développement complet sur une machine virtuelle Debian 12. L'objectif était de déployer un système fonctionnel, correctement partitionné, sécurisé et prêt à l'emploi pour le développement. Nous avons installé Oracle VirtualBox, créé une VM (8 Go RAM, 8 cœurs CPU, 16 Go disque), procédé à une installation graphique de Debian 12.2.0 avec partitionnement manuel : une partition primaire ext4 montée sur / et une partition swap de 2 Go. Après l'OS, nous avons configuré l'environnement post-installation, installé VS Code et développé plusieurs scripts bash d'administration système.</p>
+                    <p><strong>Mon rôle :</strong> J'ai pris en charge la configuration logicielle : définition du schéma de partitionnement (ext4 + swap), configuration post-installation de l'utilisateur (<code>gpasswd -a y_r_t sudo</code>), installation de VS Code via <code>dpkg</code>, et développement du script <code>groupe.bash</code> — automatisant la création de groupes UNIX (<code>groupadd</code>), d'utilisateurs (<code>useradd -m -G</code>), et l'application des permissions <code>chmod 740</code>. J'ai aussi contribué à <code>comptemps.bash</code> (comparaison de timestamps UNIX via <code>date -d ... +%s</code>) et <code>demande.bash</code> (gestion d'emprunts par croisement de fichiers et <code>sed</code>).</p>
                     <div class="analyse-reflexive">
                         <h4>Analyse réflexive</h4>
-                        <ul>
-                            <li><strong>Difficultés :</strong> Comprendre les concepts de réseaux virtuels.</li>
-                            <li><strong>Savoirs :</strong> Notions de virtualisation, conteneurisation et gestion de
-                                dépendances.</li>
-                        </ul>
+                        <p>La difficulté principale a été le partitionnement manuel : il fallait comprendre partition primaire vs logique, choisir ext4, et dimensionner correctement le swap — une erreur aurait rendu la VM inutilisable. L'écriture de <code>comptemps.bash</code> m'a aussi confronté aux timestamps UNIX, notion plus abstraite que prévu. Sur le plan des softskills, ce projet a renforcé ma rigueur : en administration système, une commande mal tapée ou un droit mal configuré peut bloquer tout un système. Il a aussi développé mon sens de la documentation : nous avons produit un guide d'installation détaillé avec captures d'écran pour permettre à n'importe qui de reproduire notre configuration.</p>
+                    </div>
+                    <div class="livrables-section">
+                        <span class="livrables-title">Livrables</span>
+                        <div class="livrables-btns">
+                            <a href="https://github.com/YaelBetton" target="_blank" rel="noopener" class="livrable-btn livrable-btn--link">🔗 Scripts GitHub</a>
+                            <span class="livrable-btn">📄 Compte rendu SAE S1.03</span>
+                            <span class="livrable-btn">⚙️ groupe.bash</span>
+                            <span class="livrable-btn">⏱️ comptemps.bash</span>
+                            <span class="livrable-btn">📚 demande.bash</span>
+                            <span class="livrable-btn">🖥️ VM Debian 12 opérationnelle</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Competence C4 -->
+            <!-- Competence C5 – AC15.03 -->
             <div class="competence-card cursor-pointer" onclick="openCompModal(this)">
-                <div class="card-bg" style="background-image: url('images/legrand_image.jpg');"></div>
-                <div class="card-overlay"></div>
-                <div class="card-front-content">
-                    <span class="comp-id-large">C4</span>
-                    <h3>Gérer des données</h3>
-                </div>
-                <div class="competence-data" style="display: none;">
-                    <div class="modal-header-content">
-                        <h2>C4 : Gérer des données</h2>
-                        <span class="comp-project"><strong>Projet :</strong> LeGrand</span>
-                    </div>
-                    <p><strong>Auto-positionnement :</strong> Autonomie</p>
-                    <hr>
-                    <p><strong>Description :</strong> App web Node.js/Vue.js pour création de documents techniques.</p>
-                    <p><strong>Rôle :</strong> Modélisation de la BDD et réalisation de l'API REST.</p>
-                    <p><strong>Livrables :</strong> MCD/MLD, scripts de requêtes SQL, interface admin.</p>
-                    <div class="analyse-reflexive">
-                        <h4>Analyse réflexive</h4>
-                        <ul>
-                            <li><strong>Difficultés :</strong> Modéliser la flexibilité des formulaires dynamiques.</li>
-                            <li><strong>Savoirs :</strong> Conception BDD robuste et création API Rest.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Competence C5 -->
-            <div class="competence-card cursor-pointer" onclick="openCompModal(this)">
-                <div class="card-bg" style="background-image: url('images/Logo_Legrand.png');"></div>
+                <div class="card-bg" style="background-image: url('images/conduireprojet_image.png');"></div>
                 <div class="card-overlay"></div>
                 <div class="card-front-content">
                     <span class="comp-id-large">C5</span>
@@ -249,27 +238,32 @@
                 <div class="competence-data" style="display: none;">
                     <div class="modal-header-content">
                         <h2>C5 : Conduire un projet</h2>
-                        <span class="comp-project"><strong>Projet :</strong> LeGrand</span>
+                        <span class="comp-ac">AC15.03 – Identifier les acteurs et les différentes phases d'un cycle de développement</span>
+                        <span class="comp-project-row"><span class="comp-project-label">Projet :</span> LeGrand – Application web de génération de documents techniques</span>
                     </div>
-                    <p><strong>Auto-positionnement :</strong> Autonomie</p>
+                    <p><strong>Niveau estimé :</strong> <strong>3</strong> – <span class="softskill-tag">Autonomie</span></p>
                     <hr>
-                    <p><strong>Description :</strong> Projet pro (alternance/stage) mené de A à Z : générateur PDF.</p>
-                    <p><strong>Rôle :</strong> Recueil des besoins, planification, itérations utilisateurs.</p>
-                    <p><strong>Livrables :</strong> Cahier des charges, tickets Jira/Trello, releases.</p>
+                    <p><strong>Description :</strong> Dans le cadre d'un projet en lien avec l'entreprise Legrand, nous avons développé une application web permettant aux employés chargés de l'assemblage industriel de générer automatiquement des documents techniques standardisés. Ce projet s'est déroulé dans un cadre semi-professionnel avec un client réel, ce qui nous a obligés à structurer notre travail selon un vrai cycle de développement : recueil des besoins, rédaction du backlog, sprints, livraisons intermédiaires et ajustements selon les retours.</p>
+                    <p><strong>Mon rôle :</strong> J'ai participé à toutes les phases du cycle : j'ai contribué à l'analyse des besoins lors des échanges avec le client (Legrand), à la rédaction et priorisation du backlog (découpage en user stories, estimation), au développement itératif (frontend Vue.js / TypeScript, backend Node.js / API REST), aux phases de test et aux ajustements post-retour client. J'ai eu un rôle actif dans la communication avec le client pour clarifier les exigences et valider les livraisons.</p>
                     <div class="analyse-reflexive">
                         <h4>Analyse réflexive</h4>
-                        <ul>
-                            <li><strong>Difficultés :</strong> Compromis entre technologie et facilité terrain.</li>
-                            <li><strong>Savoirs :</strong> Méthodes agiles, relation client, gestion dev full-stack.
-                            </li>
-                        </ul>
+                        <p>La principale difficulté a été que les besoins du client évoluaient au fil des livraisons : ce qui semblait clair au départ se précisait (ou changeait) une fois que le client voyait une version concrète. Cela m'a appris à ne pas "sur-coder" trop tôt et à livrer des versions fonctionnelles rapidement pour valider les hypothèses. Sur le plan des softskills, ce projet a fortement développé mon sens de la communication : savoir reformuler un besoin client en termes techniques, mais aussi expliquer une contrainte technique à un non-développeur. Il a aussi renforcé mon organisation et ma capacité à prioriser : face à un backlog qui grandit, il faut trancher et justifier ses choix, pas juste coder ce qui est fun.</p>
+                    </div>
+                    <div class="livrables-section">
+                        <span class="livrables-title">Livrables</span>
+                        <div class="livrables-btns">
+                            <span class="livrable-btn">&#127760; App web Vue.js + Node.js</span>
+                            <span class="livrable-btn">&#128274; API REST + JWT</span>
+                            <span class="livrable-btn">&#128203; Backlog &amp; sprints</span>
+                            <span class="livrable-btn">&#128196; Export PDF</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Competence C6 -->
+            <!-- Competence C6 – AC16.03 -->
             <div class="competence-card cursor-pointer" onclick="openCompModal(this)">
-                <div class="card-bg" style="background-image: url('images/minijeuImage.jpg');"></div>
+                <div class="card-bg" style="background-image: url('images/latice_jeu.jpg');"></div>
                 <div class="card-overlay"></div>
                 <div class="card-front-content">
                     <span class="comp-id-large">C6</span>
@@ -278,19 +272,24 @@
                 <div class="competence-data" style="display: none;">
                     <div class="modal-header-content">
                         <h2>C6 : Collaborer</h2>
-                        <span class="comp-project"><strong>Projet :</strong> MiniJeux</span>
+                        <span class="comp-ac">AC16.03 – Identifier les statuts, les fonctions et les rôles de chaque membre d'une équipe pluridisciplinaire</span>
+                        <span class="comp-project-row"><span class="comp-project-label">Projet :</span> Latice – Jeu de plateau en Java / JavaFX</span>
                     </div>
-                    <p><strong>Auto-positionnement :</strong> Maîtrise partielle</p>
+                    <p><strong>Niveau estimé :</strong> <strong>4</strong> – <span class="softskill-tag">Autonomie</span></p>
                     <hr>
-                    <p><strong>Description :</strong> Groupe de dev pour mini-jeux Python (Morpion, IA, etc.).</p>
-                    <p><strong>Rôle :</strong> Dev en équipe, versioning, réunions techniques.</p>
-                    <p><strong>Livrables :</strong> Pull requests, historique Git, Code bots IA.</p>
+                    <p><strong>Description :</strong> Le projet Latice a été développé en équipe dans le cadre d'un projet académique. L'objectif était de recréer numériquement le jeu de société Latice (placement de tuiles par couleur et symbole, système de bonus, détection de victoire) avec une interface graphique en JavaFX. Au-delà du développement technique, ce projet nous a imposé une vraie organisation collective : répartition des tâches, gestion du code partagé sur GitHub, coordination pour éviter les conflits et maintenir une cohérence dans l'architecture.</p>
+                    <p><strong>Mon rôle :</strong> Au sein de l'équipe, j'ai pris en charge le développement de la logique de jeu (algorithmes de validation des coups, gestion des tours, détection de victoire) et une partie de l'interface graphique JavaFX. Nous avons défini ensemble les rôles dès le départ : qui gère le modèle, qui gère la vue, qui fait le lien (pattern MVC). Nous avons utilisé GitHub avec une stratégie de branches pour travailler en parallèle sans se bloquer mutuellement, et nous avons tenu des points réguliers pour synchroniser l'avancement et résoudre les conflits de code ou de compréhension des règles.</p>
                     <div class="analyse-reflexive">
                         <h4>Analyse réflexive</h4>
-                        <ul>
-                            <li><strong>Difficultés :</strong> Gérer les conflits de code sur Github.</li>
-                            <li><strong>Savoirs :</strong> Commandes Git, organisation équipe, revues de code.</li>
-                        </ul>
+                        <p>La difficulté principale n'était pas technique mais humaine : s'assurer que tout le monde avait la même compréhension des règles du jeu et de l'architecture choisie. Un malentendu sur l'interface entre le modèle et la vue a failli créer un conflit majeur à mi-projet. On a appris à mieux documenter nos interfaces dès le départ plutôt que de supposer que l'autre "a compris". Sur le plan des softskills, ce projet a été particulièrement formateur pour l'esprit d'équipe et l'écoute active : il faut savoir accepter qu'une décision collective ne soit pas toujours celle qu'on aurait prise seul. Il a aussi développé ma fiabilité : quand on travaille en groupe, ne pas livrer sa partie à temps bloque tout le monde, ce qui responsabilise différemment que sur un projet solo.</p>
+                    </div>
+                    <div class="livrables-section">
+                        <span class="livrables-title">Livrables</span>
+                        <div class="livrables-btns">
+                            <a href="https://github.com/YaelBetton/Latice" target="_blank" rel="noopener" class="livrable-btn livrable-btn--link">🔗 Code source GitHub</a>
+                            <span class="livrable-btn">&#9824; App Java/JavaFX</span>
+                            <span class="livrable-btn">&#128196; README</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -309,31 +308,31 @@
                 <div class="skill-category">
                     <h3>Frontend</h3>
                     <ul class="skill-list">
-                        <li>JavaScript</li>
-                        <li>React Native</li>
-                        <li>HTML5 / CSS3</li>
-                        <li>TypeScript</li>
-                        <li>Vue.js</li>
+                        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript" target="_blank" rel="noopener"><i class="devicon-javascript-plain colored"></i> JavaScript</a></li>
+                        <li><a href="https://reactnative.dev/docs/getting-started" target="_blank" rel="noopener"><i class="devicon-react-original colored"></i> React Native</a></li>
+                        <li><a href="https://developer.mozilla.org/fr/docs/Learn/HTML" target="_blank" rel="noopener"><i class="devicon-html5-plain colored"></i> HTML5 / CSS3</a></li>
+                        <li><a href="https://www.typescriptlang.org/docs/" target="_blank" rel="noopener"><i class="devicon-typescript-plain colored"></i> TypeScript</a></li>
+                        <li><a href="https://vuejs.org/guide/introduction.html" target="_blank" rel="noopener"><i class="devicon-vuejs-plain colored"></i> Vue.js</a></li>
                     </ul>
                 </div>
                 <div class="skill-category">
                     <h3>Backend</h3>
                     <ul class="skill-list">
-                        <li>Node.js</li>
-                        <li>PHP</li>
-                        <li>Python</li>
-                        <li>Java</li>
-                        <li>SQL / PostgreSQL</li>
+                        <li><a href="https://nodejs.org/en/docs" target="_blank" rel="noopener"><i class="devicon-nodejs-plain colored"></i> Node.js</a></li>
+                        <li><a href="https://www.php.net/docs.php" target="_blank" rel="noopener"><i class="devicon-php-plain colored"></i> PHP</a></li>
+                        <li><a href="https://docs.python.org/fr/3/" target="_blank" rel="noopener"><i class="devicon-python-plain colored"></i> Python</a></li>
+                        <li><a href="https://docs.oracle.com/en/java/" target="_blank" rel="noopener"><i class="devicon-java-plain colored"></i> Java</a></li>
+                        <li><a href="https://www.postgresql.org/docs/" target="_blank" rel="noopener"><i class="devicon-postgresql-plain colored"></i> SQL / PostgreSQL</a></li>
                     </ul>
                 </div>
                 <div class="skill-category">
                     <h3>Outils</h3>
                     <ul class="skill-list">
-                        <li>Git / GitHub</li>
-                        <li>Docker</li>
-                        <li>VS Code</li>
-                        <li>Figma</li>
-                        <li>Eclipse</li>
+                        <li><a href="https://git-scm.com/doc" target="_blank" rel="noopener"><i class="devicon-git-plain colored"></i> Git / GitHub</a></li>
+                        <li><a href="https://docs.docker.com/" target="_blank" rel="noopener"><i class="devicon-docker-plain colored"></i> Docker</a></li>
+                        <li><a href="https://code.visualstudio.com/docs" target="_blank" rel="noopener"><i class="devicon-vscode-plain colored"></i> VS Code</a></li>
+                        <li><a href="https://help.figma.com/" target="_blank" rel="noopener"><i class="devicon-figma-plain colored"></i> Figma</a></li>
+                        <li><a href="https://help.eclipse.org/" target="_blank" rel="noopener"><i class="devicon-eclipse-plain colored"></i> Eclipse</a></li>
                     </ul>
                 </div>
             </div>
