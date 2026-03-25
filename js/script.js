@@ -1,4 +1,37 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Theme Toggle Logic
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.documentElement;
+    const themeIcon = themeToggle?.querySelector('span');
+
+    function updateToggleIcon(theme) {
+        if (themeIcon) {
+            themeIcon.textContent = theme === 'light' ? '🌙' : '☀️';
+        }
+    }
+
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    if (savedTheme === 'dark') {
+        body.setAttribute('data-theme', 'dark');
+    } else {
+        body.removeAttribute('data-theme');
+    }
+    updateToggleIcon(savedTheme);
+
+    themeToggle?.addEventListener('click', () => {
+        const isDark = body.hasAttribute('data-theme');
+        const newTheme = isDark ? 'light' : 'dark';
+        
+        if (newTheme === 'dark') {
+            body.setAttribute('data-theme', 'dark');
+        } else {
+            body.removeAttribute('data-theme');
+        }
+        
+        localStorage.setItem('theme', newTheme);
+        updateToggleIcon(newTheme);
+    });
+
     const urlParams = new URLSearchParams(window.location.search);
     const mailStatus = urlParams.get('mail');
     const contactMessage = document.getElementById('contact-message');
@@ -211,7 +244,7 @@ window.openCompModal = function(cardElement) {
     if (modal && modalBodyContent && hiddenData) {
         modalBodyContent.innerHTML = hiddenData.innerHTML;
         modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; 
+        document.documentElement.classList.add('modal-open'); 
     }
 };
 
@@ -219,7 +252,7 @@ window.closeCompModal = function() {
     const modal = document.getElementById('compModal');
     if (modal) {
         modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
+        document.documentElement.classList.remove('modal-open');
     }
 };
 
@@ -227,42 +260,5 @@ window.addEventListener('click', function(event) {
     const modal = document.getElementById('compModal');
     if (event.target == modal) {
         window.closeCompModal();
-    }
-});
-
-// --- Theme Toggle Logic ---
-document.addEventListener('DOMContentLoaded', () => {
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-    
-    // Default to light mode (the base original style)
-    let savedTheme = localStorage.getItem('theme');
-    if (!savedTheme) savedTheme = 'light';
-    
-    applyTheme(savedTheme);
-    
-    if(themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            let current = localStorage.getItem('theme') || 'light';
-            let newTheme = current === 'light' ? 'dark' : 'light';
-            applyTheme(newTheme);
-        });
-    }
-    
-    function applyTheme(theme) {
-        localStorage.setItem('theme', theme);
-        if (theme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            if (themeIcon) {
-                // Sun icon to switch back
-                themeIcon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
-            }
-        } else {
-            document.documentElement.removeAttribute('data-theme');
-            if (themeIcon) {
-                // Moon icon 
-                themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
-            }
-        }
     }
 });

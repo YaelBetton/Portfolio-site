@@ -30,10 +30,8 @@
                     <a href="../index.html#contact" class="nav-link">Contact</a>
                 </li>
             </ul>
-            <button id="theme-toggle" class="theme-toggle" aria-label="Basculer le thème">
-                <svg id="theme-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" class="moon-icon">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                </svg>
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+                <span>🌙</span>
             </button>
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
@@ -104,16 +102,13 @@
                     <h2>Compétences BUT démontrées</h2>
                     
                     <div class="competence-block">
-                        <h3>Compétence C6 : Collaborer</h3>
-                        <p><strong>Description :</strong> Regroupement de mini-jeux développés en Python (Morpion, Allumettes, Devinettes), intégrant notamment des adversaires IA avec différents niveaux de difficulté.</p>
-                        <p><strong>Rôle personnel :</strong> Développement en équipe des différents modules de jeux, utilisation et suivi approfondi de versions avec Git/GitHub, et communication continue pour unifier le projet final.</p>
-                        <p><strong>Livrables :</strong> Liens vers la Pull Request de l'intégration, historique des Commits GitHub, et code source des robots IA.</p>
+                        <h3>C2 : Optimiser des applications</h3>
+                        <span class="comp-ac">AC12.03 – Formaliser et mettre en œuvre des outils mathématiques pour l'informatique</span>
+                        <p><strong>Description :</strong> Dans le cadre d'un projet Python, j'ai développé une collection de mini-jeux intégrant des robots à plusieurs niveaux de difficulté. Pour le morpion, le robot "niveau difficile" devait jouer de façon optimale, ce qui impliquait d'implémenter un vrai algorithme mathématique de théorie des jeux. Pour le jeu des allumettes, la stratégie gagnante repose sur une propriété mathématique.</p>
+                        <p><strong>Rôle personnel :</strong> J'ai conçu et implémenté l'algorithme Minimax pour le bot difficile du morpion : l'algorithme explore récursivement tous les états possibles du jeu, évalue chaque issue (victoire, défaite, nul) et remonte le coup optimal. J'ai également modélisé la stratégie gagnante du jeu des allumettes basée sur la congruence modulo (n mod (k+1) = 0), pour le bot niveau difficile, et introduit volontairement des erreurs probabilistes pour les bots de niveau inférieur. Les scores et statistiques ont été persistés en JSON.</p>
                         <div class="analyse-reflexive">
                             <h4>Analyse réflexive</h4>
-                            <ul>
-                                <li><strong>Difficultés rencontrées :</strong> Gérer les conflits de code Git lorsque plusieurs composants interdépendants étaient modifiés en même temps par différents membres du groupe.</li>
-                                <li><strong>Savoirs acquis :</strong> De très bons réflexes sur l'utilisation de Git (branches, fusionnement), et des méthodologies de communication pour répartir le travail équitablement.</li>
-                            </ul>
+                            <p>La difficulté principale a été de comprendre le fonctionnement de Minimax avant de l'implémenter : il fallait modéliser l'arbre des états, attribuer des scores aux feuilles et propager ces scores vers la racine. Ce n'est pas trivial à implémenter pour la première fois. Sur le plan des softskills, ce projet a exigé beaucoup de perspévérance : comprendre un algorithme sur le papier est une chose, le déboguer dans une récursion profonde en est une autre.</p>
                         </div>
                     </div>
                 </div>

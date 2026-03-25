@@ -30,10 +30,8 @@
                     <a href="../index.html#contact" class="nav-link">Contact</a>
                 </li>
             </ul>
-            <button id="theme-toggle" class="theme-toggle" aria-label="Basculer le thème">
-                <svg id="theme-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" class="moon-icon">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                </svg>
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+                <span>🌙</span>
             </button>
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
@@ -104,16 +102,13 @@
                     <h2>Compétences BUT démontrées</h2>
                     
                     <div class="competence-block">
-                        <h3>Compétence C1 : Réaliser un développement d'application</h3>
-                        <p><strong>Description :</strong> Développement d'une application mobile qui scanne les codes-barres des produits alimentaires pour fournir une note de qualité selon leur composition et leurs valeurs nutritionnelles.</p>
-                        <p><strong>Rôle personnel :</strong> Développement de l'interface en React Native et TypeScript, intégration de la fonctionnalité de scan via la caméra et connexion aux API externes.</p>
-                        <p><strong>Livrables :</strong> Dépôt GitHub du projet, captures d'écran de l'application mobile en fonctionnement, vidéo de démonstration du scan.</p>
+                        <h3>C1 : Réaliser un développement d'application</h3>
+                        <span class="comp-ac">AC11.04 – Développer des interfaces utilisateur</span>
+                        <p><strong>Description :</strong> Dans le cadre d'un projet personnel, j'ai développé un clone de l'application Yuka en React Native et TypeScript. L'objectif était de concevoir une interface mobile complète permettant à l'utilisateur de scanner un code-barres et d'obtenir instantanément les informations nutritionnelles d'un produit alimentaire (score de qualité, additifs, alternatives plus saines). L'application devait être fluide, intuitive et fonctionnelle sur iOS et Android à partir d'une base de code unique.</p>
+                        <p><strong>Rôle personnel :</strong> J'ai conçu et développé l'intégralité de l'interface utilisateur : la page d'accueil, l'écran de scan via la caméra native, l'affichage des données nutritionnelles avec un code couleur visuel (excellent / bon / moyen / mauvais), la liste des additifs avec leur niveau de risque, et les suggestions d'alternatives. J'ai respecté les guidelines Material Design et iOS pour garantir une expérience cohérente selon la plateforme. La gestion asynchrone des appels à l'API Open Food Facts a également été intégrée avec retours visuels (chargement, erreur, données incomplètes).</p>
                         <div class="analyse-reflexive">
                             <h4>Analyse réflexive</h4>
-                            <ul>
-                                <li><strong>Difficultés rencontrées :</strong> La gestion de l'asynchronisme lors des requêtes d'API externes et le paramétrage des accès caméra sur mobile.</li>
-                                <li><strong>Savoirs acquis :</strong> J'ai consolidé mes bases en conception d'interfaces mobiles avec React Native et j'ai appris à manipuler couramment TypeScript pour un code plus robuste.</li>
-                            </ul>
+                            <p>Le principal défi était de transformer des données brutes parfois incomplètes (produits mal renseignés dans Open Food Facts) en une interface claire et compréhensible pour n'importe quel utilisateur. Cela m'a appris à toujours penser du point de vue de l'utilisateur final, pas seulement du point de vue technique. Sur le plan des softskills, ce projet a développé ma rigueur (gérer tous les cas limites d'affichage) et ma capacité d'adaptation : les données de l'API étaient imprévisibles, il fallait sans cesse ajuster l'interface pour rester lisible. J'ai aussi renforcé mon sens de l'esthétique et de l'ergonomie, conscient qu'une bonne application, c'est avant tout une application qu'on comprend en trois secondes.</p>
                         </div>
                     </div>
                 </div>
