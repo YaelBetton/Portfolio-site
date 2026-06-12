@@ -1,177 +1,276 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Latice — Portfolio Yaël Betton</title>
+    <meta
+      name="description"
+      content="Latice — jeu de plateau stratégique développé en Java/JavaFX en équipe. Architecture MVC, GitHub, détection de victoire et système de bonus."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <script>
+      try {
+        if (localStorage.getItem("theme") === "light")
+          document.documentElement.classList.add("light");
+      } catch (e) {}
+    </script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Latice — Portfolio Yaël Betton</title>
-  <meta name="description"
-    content="Latice — jeu de plateau stratégique développé en Java/JavaFX en équipe. Architecture MVC, GitHub, détection de victoire et système de bonus.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="../css/styles.css">
-  <script>try { if (localStorage.getItem('theme') === 'light') document.documentElement.classList.add('light'); } catch (e) { }</script>
-</head>
+  <body>
+    <!-- Curseur -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
 
-<body>
+    <div class="scroll-progress" id="scrollProgress"></div>
 
-  <!-- Curseur -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-dot" id="cursorDot"></div>
-
-  <div class="scroll-progress" id="scrollProgress"></div>
-
-  <!-- Navigation -->
-  <nav class="nav" id="nav">
-    <a class="nav-logo" href="../portfolio-yael-betton_2.html" data-hover>YB</a>
-    <div class="nav-right">
-      <ul class="nav-links">
-        <li><a href="../portfolio-yael-betton_2.html#projets" data-hover>Tous les projets</a></li>
-        <li><a href="../portfolio-yael-betton_2.html#contact" data-hover>Contact</a></li>
-      </ul>
-      <button class="theme-toggle" id="themeToggle" type="button" data-hover
-        aria-label="Basculer entre mode clair et mode sombre">
-        <i class="tt-dot" aria-hidden="true"></i><span class="tt-txt">Jour</span>
-      </button>
-    </div>
-  </nav>
-
-  <main class="pp-main">
-    <div class="pp-hero">
-      <a class="pp-back" href="../portfolio-yael-betton_2.html#projets" data-hover>← Retour aux projets</a>
-      <div class="pp-eyebrow">Projet collaboratif · BUT 1</div>
-      <h1 class="pp-title">Latice</h1>
-      <div class="pp-tech"><span>Java</span><span>JavaFX</span><span>Git / GitHub</span><span>MVC</span></div>
-    </div>
-
-    <div class="pp-cover reveal">
-      <div class="pp-cover-in"><img src="../images/latice_jeu.webp" alt="Latice — jeu de plateau en Java/JavaFX"></div>
-    </div>
-
-    <div class="pp-body">
-      <section class="pp-sec reveal" style="padding:0">
-        <div class="pp-sec-head"><span class="idx">01</span>
-          <h2>Aperçu du projet</h2>
-        </div>
-        <p>Latice est un jeu de plateau stratégique développé en Java avec JavaFX. Chaque joueur dispose d'un ensemble
-          de tuiles qu'il doit placer sur le plateau en les associant par couleur ou symbole aux tuiles déjà posées.
-          L'objectif est de se débarrasser de toutes ses tuiles en premier, en faisant preuve de stratégie et
-          d'anticipation.</p>
-        <p>Le jeu intègre un système de bonus qui vient enrichir l'expérience de jeu. Ces bonus permettent d'enchaîner
-          des coups spectaculaires ou de bloquer les adversaires dans leur progression. La partie devient alors un
-          véritable défi tactique où chaque décision compte.</p>
-      </section>
-      <section class="pp-sec reveal" style="padding:0">
-        <div class="pp-sec-head"><span class="idx">02</span>
-          <h2>Fonctionnalités principales</h2>
-        </div>
-        <ul class="pp-list">
-          <li>Interface graphique développée avec JavaFX pour une expérience utilisateur fluide et moderne</li>
-          <li>Système de placement de tuiles avec validation automatique des règles du jeu</li>
-          <li>Gestion des tours de jeu et détection automatique de la victoire</li>
-          <li>Système de bonus stratégiques pour dynamiser les parties</li>
-          <li>Mode multijoueur local permettant de jouer à plusieurs sur le même ordinateur</li>
-          <li>Animations et effets visuels pour améliorer l'immersion</li>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+      <a class="nav-logo" href="../index.html" data-hover>YB</a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li>
+            <a href="../index.html#projets" data-hover>Tous les projets</a>
+          </li>
+          <li><a href="../index.html#contact" data-hover>Contact</a></li>
         </ul>
-      </section>
-      <section class="pp-sec reveal" style="padding:0">
-        <div class="pp-sec-head"><span class="idx">03</span>
-          <h2>Technologies utilisées</h2>
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          type="button"
+          data-hover
+          aria-label="Basculer entre mode clair et mode sombre"
+        >
+          <i class="tt-dot" aria-hidden="true"></i
+          ><span class="tt-txt">Jour</span>
+        </button>
+      </div>
+    </nav>
+
+    <main class="pp-main">
+      <div class="pp-hero">
+        <a class="pp-back" href="../index.html#projets" data-hover
+          >← Retour aux projets</a
+        >
+        <div class="pp-eyebrow">Projet collaboratif · BUT 1</div>
+        <h1 class="pp-title">Latice</h1>
+        <div class="pp-tech">
+          <span>Java</span><span>JavaFX</span><span>Git / GitHub</span
+          ><span>MVC</span>
         </div>
-        <p>Ce projet a été entièrement développé en <strong>Java</strong>, en utilisant le framework
-          <strong>JavaFX</strong> pour créer l'interface graphique. JavaFX offre un ensemble d'outils puissants pour
-          créer des applications modernes avec des animations, des transitions et des effets visuels avancés.</p>
-        <p>L'architecture du code suit les principes de la programmation orientée objet, avec une séparation claire
-          entre la logique métier et l'interface utilisateur. Cette approche facilite la maintenance et l'évolution du
-          code.</p>
-      </section>
-      <section class="pp-sec reveal" style="padding:0">
-        <div class="pp-sec-head"><span class="idx">04</span>
-          <h2>Compétence BUT démontrée</h2>
+      </div>
+
+      <div class="pp-cover reveal">
+        <div class="pp-cover-in">
+          <img
+            src="../images/latice_jeu.webp"
+            alt="Latice — jeu de plateau en Java/JavaFX"
+          />
         </div>
-        <div class="pp-comp">
-          <span class="pp-ac">C6 : Collaborer — AC16.03 · Identifier les statuts, les fonctions et les rôles de chaque
-            membre d'une équipe pluridisciplinaire</span>
-          <h3>Latice — Jeu de plateau en Java / JavaFX</h3>
-          <span class="pp-level">Niveau estimé : <b>4</b> — Autonomie</span>
-          <p><strong>Description :</strong> Le projet Latice a été développé en équipe dans le cadre d'un projet
-            académique. L'objectif était de recréer numériquement le jeu de société Latice (placement de tuiles par
-            couleur et symbole, système de bonus, détection de victoire) avec une interface graphique en JavaFX. Au-delà
-            du développement technique, ce projet nous a imposé une vraie organisation collective : répartition des
-            tâches, gestion du code partagé sur GitHub, coordination pour éviter les conflits et maintenir une cohérence
-            dans l'architecture.</p>
-          <p><strong>Mon rôle :</strong> Au sein de l'équipe, j'ai pris en charge le développement de l'interface
-            graphique JavaFX avec Anton Hladyshev et une partie de la logique de victoire et de récompense. Nous avons
-            défini ensemble les rôles dès le départ : qui gère le modèle, qui gère la vue, qui fait le lien (pattern
-            MVC). Nous avons utilisé GitHub avec une stratégie de branches pour travailler en parallèle sans se bloquer
-            mutuellement, et nous avons tenu des points réguliers pour synchroniser l'avancement et résoudre les
-            conflits de code ou de compréhension des règles.</p>
-          <div class="pp-reflex">
-            <h4>Analyse réflexive</h4>
-            <p>La difficulté majeure de ce projet s'est avérée être humaine plutôt que technique. S'assurer que chaque
-              membre de l'équipe partageait la même vision de l'architecture était un défi constant. Un malentendu sur
-              l'interface entre le Modèle et la Vue a d'ailleurs failli compromettre l'avancement du projet à
-              mi-parcours. Cette expérience m'a appris l'importance cruciale de documenter les interfaces dès le début,
-              au lieu de s'appuyer sur des suppositions. Sur le plan des soft skills, ce projet a renforcé mon esprit
-              d'équipe et mon écoute active : j'ai appris à privilégier l'intérêt collectif sur les préférences
-              individuelles. Enfin, cela a développé ma fiabilité et mon sens des responsabilités : dans un flux de
-              travail partagé, le respect des délais est indispensable pour ne pas paralyser l'ensemble de la chaîne de
-              production.</p>
+      </div>
+
+      <div class="pp-body">
+        <section class="pp-sec reveal" style="padding: 0">
+          <div class="pp-sec-head">
+            <span class="idx">01</span>
+            <h2>Aperçu du projet</h2>
           </div>
-        </div>
-      </section>
-      <section class="pp-sec reveal" style="padding:0">
-        <div class="pp-sec-head"><span class="idx">05</span>
-          <h2>Défis rencontrés</h2>
-        </div>
-        <p>Le principal défi de ce projet résidait dans l'implémentation de la logique de validation des coups. Il
-          fallait vérifier en temps réel si une tuile pouvait être placée à un emplacement donné, en tenant compte des
-          règles complexes du jeu concernant les couleurs et les symboles.</p>
-        <p>Un autre aspect important était la gestion de l'interface graphique avec JavaFX. Il a fallu créer une
-          représentation visuelle du plateau qui soit à la fois claire et esthétique, tout en restant performante même
-          avec un grand nombre de tuiles affichées simultanément.</p>
-      </section>
-      <section class="pp-sec reveal" style="padding:0">
-        <div class="pp-sec-head"><span class="idx">06</span>
-          <h2>Apprentissages</h2>
-        </div>
-        <p>Ce projet m'a permis d'approfondir mes compétences en développement Java et en conception d'interfaces
-          graphiques avec JavaFX. J'ai notamment acquis une meilleure compréhension des patterns de conception orientés
-          objet et de l'architecture MVC (Modèle-Vue-Contrôleur).</p>
-        <p>La gestion des événements utilisateur, l'optimisation des performances graphiques et la création d'une
-          expérience utilisateur fluide ont été des aspects particulièrement enrichissants de ce développement.</p>
-      </section>
-      <section class="pp-sec reveal" style="padding:0">
-        <div class="pp-sec-head"><span class="idx">07</span>
-          <h2>Livrables</h2>
-        </div>
-        <div class="pp-deliv">
-          <a class="btn" href="https://github.com/YaelBetton/Latice/tree/main/src" target="_blank" rel="noopener"
-            data-hover>🔗 Code source GitHub</a>
-          <a class="btn" href="https://github.com/YaelBetton/Latice/blob/main/README.md" target="_blank" rel="noopener"
-            data-hover>📄 Documentation complète</a>
-        </div>
-      </section>
+          <p>
+            Latice est un jeu de plateau stratégique développé en Java avec
+            JavaFX. Chaque joueur dispose d'un ensemble de tuiles qu'il doit
+            placer sur le plateau en les associant par couleur ou symbole aux
+            tuiles déjà posées. L'objectif est de se débarrasser de toutes ses
+            tuiles en premier, en faisant preuve de stratégie et d'anticipation.
+          </p>
+          <p>
+            Le jeu intègre un système de bonus qui vient enrichir l'expérience
+            de jeu. Ces bonus permettent d'enchaîner des coups spectaculaires ou
+            de bloquer les adversaires dans leur progression. La partie devient
+            alors un véritable défi tactique où chaque décision compte.
+          </p>
+        </section>
+        <section class="pp-sec reveal" style="padding: 0">
+          <div class="pp-sec-head">
+            <span class="idx">02</span>
+            <h2>Fonctionnalités principales</h2>
+          </div>
+          <ul class="pp-list">
+            <li>
+              Interface graphique développée avec JavaFX pour une expérience
+              utilisateur fluide et moderne
+            </li>
+            <li>
+              Système de placement de tuiles avec validation automatique des
+              règles du jeu
+            </li>
+            <li>
+              Gestion des tours de jeu et détection automatique de la victoire
+            </li>
+            <li>Système de bonus stratégiques pour dynamiser les parties</li>
+            <li>
+              Mode multijoueur local permettant de jouer à plusieurs sur le même
+              ordinateur
+            </li>
+            <li>Animations et effets visuels pour améliorer l'immersion</li>
+          </ul>
+        </section>
+        <section class="pp-sec reveal" style="padding: 0">
+          <div class="pp-sec-head">
+            <span class="idx">03</span>
+            <h2>Technologies utilisées</h2>
+          </div>
+          <p>
+            Ce projet a été entièrement développé en <strong>Java</strong>, en
+            utilisant le framework <strong>JavaFX</strong> pour créer
+            l'interface graphique. JavaFX offre un ensemble d'outils puissants
+            pour créer des applications modernes avec des animations, des
+            transitions et des effets visuels avancés.
+          </p>
+          <p>
+            L'architecture du code suit les principes de la programmation
+            orientée objet, avec une séparation claire entre la logique métier
+            et l'interface utilisateur. Cette approche facilite la maintenance
+            et l'évolution du code.
+          </p>
+        </section>
+        <section class="pp-sec reveal" style="padding: 0">
+          <div class="pp-sec-head">
+            <span class="idx">04</span>
+            <h2>Compétence BUT démontrée</h2>
+          </div>
+          <div class="pp-comp">
+            <span class="pp-ac"
+              >C6 : Collaborer — AC16.03 · Identifier les statuts, les fonctions
+              et les rôles de chaque membre d'une équipe
+              pluridisciplinaire</span
+            >
+            <h3>Latice — Jeu de plateau en Java / JavaFX</h3>
+            <span class="pp-level">Niveau estimé : <b>4</b> — Autonomie</span>
+            <p>
+              <strong>Description :</strong> Le projet Latice a été développé en
+              équipe dans le cadre d'un projet académique. L'objectif était de
+              recréer numériquement le jeu de société Latice (placement de
+              tuiles par couleur et symbole, système de bonus, détection de
+              victoire) avec une interface graphique en JavaFX. Au-delà du
+              développement technique, ce projet nous a imposé une vraie
+              organisation collective : répartition des tâches, gestion du code
+              partagé sur GitHub, coordination pour éviter les conflits et
+              maintenir une cohérence dans l'architecture.
+            </p>
+            <p>
+              <strong>Mon rôle :</strong> Au sein de l'équipe, j'ai pris en
+              charge le développement de l'interface graphique JavaFX avec Anton
+              Hladyshev et une partie de la logique de victoire et de
+              récompense. Nous avons défini ensemble les rôles dès le départ :
+              qui gère le modèle, qui gère la vue, qui fait le lien (pattern
+              MVC). Nous avons utilisé GitHub avec une stratégie de branches
+              pour travailler en parallèle sans se bloquer mutuellement, et nous
+              avons tenu des points réguliers pour synchroniser l'avancement et
+              résoudre les conflits de code ou de compréhension des règles.
+            </p>
+            <div class="pp-reflex">
+              <h4>Analyse réflexive</h4>
+              <p>
+                La difficulté majeure de ce projet s'est avérée être humaine
+                plutôt que technique. S'assurer que chaque membre de l'équipe
+                partageait la même vision de l'architecture était un défi
+                constant. Un malentendu sur l'interface entre le Modèle et la
+                Vue a d'ailleurs failli compromettre l'avancement du projet à
+                mi-parcours. Cette expérience m'a appris l'importance cruciale
+                de documenter les interfaces dès le début, au lieu de s'appuyer
+                sur des suppositions. Sur le plan des soft skills, ce projet a
+                renforcé mon esprit d'équipe et mon écoute active : j'ai appris
+                à privilégier l'intérêt collectif sur les préférences
+                individuelles. Enfin, cela a développé ma fiabilité et mon sens
+                des responsabilités : dans un flux de travail partagé, le
+                respect des délais est indispensable pour ne pas paralyser
+                l'ensemble de la chaîne de production.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="pp-sec reveal" style="padding: 0">
+          <div class="pp-sec-head">
+            <span class="idx">05</span>
+            <h2>Défis rencontrés</h2>
+          </div>
+          <p>
+            Le principal défi de ce projet résidait dans l'implémentation de la
+            logique de validation des coups. Il fallait vérifier en temps réel
+            si une tuile pouvait être placée à un emplacement donné, en tenant
+            compte des règles complexes du jeu concernant les couleurs et les
+            symboles.
+          </p>
+          <p>
+            Un autre aspect important était la gestion de l'interface graphique
+            avec JavaFX. Il a fallu créer une représentation visuelle du plateau
+            qui soit à la fois claire et esthétique, tout en restant performante
+            même avec un grand nombre de tuiles affichées simultanément.
+          </p>
+        </section>
+        <section class="pp-sec reveal" style="padding: 0">
+          <div class="pp-sec-head">
+            <span class="idx">06</span>
+            <h2>Apprentissages</h2>
+          </div>
+          <p>
+            Ce projet m'a permis d'approfondir mes compétences en développement
+            Java et en conception d'interfaces graphiques avec JavaFX. J'ai
+            notamment acquis une meilleure compréhension des patterns de
+            conception orientés objet et de l'architecture MVC
+            (Modèle-Vue-Contrôleur).
+          </p>
+          <p>
+            La gestion des événements utilisateur, l'optimisation des
+            performances graphiques et la création d'une expérience utilisateur
+            fluide ont été des aspects particulièrement enrichissants de ce
+            développement.
+          </p>
+        </section>
+        <section class="pp-sec reveal" style="padding: 0">
+          <div class="pp-sec-head">
+            <span class="idx">07</span>
+            <h2>Livrables</h2>
+          </div>
+          <div class="pp-deliv">
+            <a
+              class="btn"
+              href="https://github.com/YaelBetton/Latice/tree/main/src"
+              target="_blank"
+              rel="noopener"
+              data-hover
+              >🔗 Code source GitHub</a
+            >
+            <a
+              class="btn"
+              href="https://github.com/YaelBetton/Latice/blob/main/README.md"
+              target="_blank"
+              rel="noopener"
+              data-hover
+              >📄 Documentation complète</a
+            >
+          </div>
+        </section>
+      </div>
 
-    </div>
+      <a class="pp-next" href="project-yuka.html" data-hover>
+        <span>Projet suivant</span>
+        <b>Yuka Clone</b>
+      </a>
+    </main>
 
-    <a class="pp-next" href="project-yuka.html" data-hover>
-      <span>Projet suivant</span>
-      <b>Yuka Clone</b>
-    </a>
-  </main>
+    <footer>
+      <span>© 2026 Yaël Betton</span>
+      <span>Nouvelle-Aquitaine, France</span>
+      <span>Portfolio personnel</span>
+    </footer>
 
-  <footer>
-    <span>© 2026 Yaël Betton</span>
-    <span>Nouvelle-Aquitaine, France</span>
-    <span>Portfolio personnel</span>
-  </footer>
-
-  <script src="../js/project.js"></script>
-
-</body>
-
+    <script src="../js/script.js"></script>
+  </body>
 </html>

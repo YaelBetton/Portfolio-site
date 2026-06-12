@@ -1,152 +1,248 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Environnement Debian — Portfolio Yaël Betton</title>
+    <meta
+      name="description"
+      content="SAE S1.03 — Installation et configuration d'un environnement Debian sous VirtualBox : partitionnement, sécurité, scripts Bash d'automatisation."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <script>
+      try {
+        if (localStorage.getItem("theme") === "light")
+          document.documentElement.classList.add("light");
+      } catch (e) {}
+    </script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Environnement Debian — Portfolio Yaël Betton</title>
-  <meta name="description"
-    content="SAE S1.03 — Installation et configuration d'un environnement Debian sous VirtualBox : partitionnement, sécurité, scripts Bash d'automatisation.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="../css/styles.css">
-  <script>try { if (localStorage.getItem('theme') === 'light') document.documentElement.classList.add('light'); } catch (e) { }</script>
-</head>
+  <body>
+    <!-- Curseur -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
 
-<body>
+    <div class="scroll-progress" id="scrollProgress"></div>
 
-  <!-- Curseur -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-dot" id="cursorDot"></div>
-
-  <div class="scroll-progress" id="scrollProgress"></div>
-
-  <!-- Navigation -->
-  <nav class="nav" id="nav">
-    <a class="nav-logo" href="../portfolio-yael-betton_2.html" data-hover>YB</a>
-    <div class="nav-right">
-      <ul class="nav-links">
-        <li><a href="../portfolio-yael-betton_2.html#projets" data-hover>Tous les projets</a></li>
-        <li><a href="../portfolio-yael-betton_2.html#contact" data-hover>Contact</a></li>
-      </ul>
-      <button class="theme-toggle" id="themeToggle" type="button" data-hover
-        aria-label="Basculer entre mode clair et mode sombre">
-        <i class="tt-dot" aria-hidden="true"></i><span class="tt-txt">Jour</span>
-      </button>
-    </div>
-  </nav>
-
-  <main class="pp-main">
-    <div class="pp-hero">
-      <a class="pp-back" href="../portfolio-yael-betton_2.html#projets" data-hover>← Retour aux projets</a>
-      <div class="pp-eyebrow">SAE S1.03 · Administration système</div>
-      <h1 class="pp-title">Environnement <span class="accent">Debian</span></h1>
-      <div class="pp-tech"><span>Debian 12</span><span>VirtualBox</span><span>Bash</span><span>Linux</span></div>
-    </div>
-
-    <div class="pp-cover reveal">
-      <div class="pp-cover-in"><img src="../images/reseau_image.webp"
-          alt="Installation et configuration d'un environnement Debian sous VirtualBox"></div>
-    </div>
-
-    <div class="pp-body">
-      <section class="pp-sec reveal" style="padding:0">
-        <div class="pp-sec-head"><span class="idx">01</span>
-          <h2>Aperçu du projet</h2>
-        </div>
-        <p>Dans le cadre de la SAE S1.03, nous avons configuré une machine virtuelle (VM) performante en utilisant
-          Oracle VirtualBox. Les réglages techniques incluent 8 Go de RAM, 8 cœurs CPU et un disque de 16 Go.
-          L'installation de Debian 12.2.0 a été faite graphiquement avec un découpage précis du disque.</p>
-        <p>Nous avons créé manuellement une partition ext4 pour le système (/) et une partition swap de 2 Go pour la
-          mémoire d'urgence. Une fois l'OS prêt, nous avons installé les outils de code et créé des scripts
-          d'automatisation en Bash.</p>
-      </section>
-      <section class="pp-sec reveal" style="padding:0">
-        <div class="pp-sec-head"><span class="idx">02</span>
-          <h2>Fonctionnalités principales</h2>
-        </div>
-        <ul class="pp-list">
-          <li>Machine virtuelle Debian 12 configurée sous Oracle VirtualBox (8 Go RAM, 8 cœurs, 16 Go de disque)</li>
-          <li>Partitionnement manuel : partition système ext4 et swap de 2 Go</li>
-          <li>Gestion des utilisateurs et des droits (groupe sudo via gpasswd, permissions chmod)</li>
-          <li>Installation manuelle d'outils de développement (VS Code via dpkg)</li>
-          <li>Script groupe.bash : création d'utilisateurs et de groupes avec permissions 740</li>
-          <li>Script comptemps.bash : gestion des timestamps UNIX</li>
-          <li>Script demande.bash : modification de fichiers avec la commande sed</li>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+      <a class="nav-logo" href="../index.html" data-hover>YB</a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li>
+            <a href="../index.html#projets" data-hover>Tous les projets</a>
+          </li>
+          <li><a href="../index.html#contact" data-hover>Contact</a></li>
         </ul>
-      </section>
-      <section class="pp-sec reveal" style="padding:0">
-        <div class="pp-sec-head"><span class="idx">03</span>
-          <h2>Compétence BUT démontrée</h2>
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          type="button"
+          data-hover
+          aria-label="Basculer entre mode clair et mode sombre"
+        >
+          <i class="tt-dot" aria-hidden="true"></i
+          ><span class="tt-txt">Jour</span>
+        </button>
+      </div>
+    </nav>
+
+    <main class="pp-main">
+      <div class="pp-hero">
+        <a class="pp-back" href="../index.html#projets" data-hover
+          >← Retour aux projets</a
+        >
+        <div class="pp-eyebrow">SAE S1.03 · Administration système</div>
+        <h1 class="pp-title">
+          Environnement <span class="accent">Debian</span>
+        </h1>
+        <div class="pp-tech">
+          <span>Debian 12</span><span>VirtualBox</span><span>Bash</span
+          ><span>Linux</span>
         </div>
-        <div class="pp-comp">
-          <span class="pp-ac">C3 : Administrer des systèmes — AC13.03 · Installer et configurer un système
-            d'exploitation et des outils de développement</span>
-          <h3>SAE S1.03 — Installation et configuration d'un environnement Debian sous VirtualBox</h3>
-          <span class="pp-level">Niveau estimé : <b>3</b> — Autonomie</span>
-          <p><strong>Description :</strong> Nous avons configuré une machine virtuelle (VM) performante en utilisant
-            Oracle VirtualBox. Les réglages techniques incluent 8 Go de RAM, 8 cœurs CPU et un disque de 16 Go.
-            L'installation de Debian 12.2.0 a été faite graphiquement avec un découpage précis du disque. Nous avons
-            créé manuellement une partition ext4 pour le système (/) et une partition swap de 2 Go pour la mémoire
-            d'urgence. Une fois l'OS prêt, nous avons installé les outils de code et créé des scripts d'automatisation
-            en Bash.</p>
-          <p><strong>Mon rôle :</strong> Je me suis occupé de la partie logicielle et de la sécurité du système. J'ai
-            géré le partitionnement (choix du format ext4 et du swap) et l'ajout de mon utilisateur au groupe sudo via
-            gpasswd. J'ai installé VS Code manuellement avec l'outil dpkg. Côté programmation, j'ai écrit groupe.bash
-            pour créer des utilisateurs et des groupes avec la permission chmod 740. Enfin, j'ai aidé sur comptemps.bash
-            pour la gestion des timestamps UNIX et sur demande.bash pour modifier des fichiers avec la commande sed.</p>
-          <div class="pp-reflex">
-            <h4>Analyse réflexive</h4>
-            <p>Ce projet m'a fait découvrir l'administration système de l'intérieur : comprendre ce qui se passe sous le
-              capot d'un OS, du partitionnement du disque à la gestion fine des permissions. Travailler en ligne de
-              commande et automatiser des tâches répétitives en Bash m'a appris la rigueur — une erreur de permission ou
-              de partition ne pardonne pas — et m'a donné des réflexes que je réutilise sur tous mes environnements de
-              développement.</p>
+      </div>
+
+      <div class="pp-cover reveal">
+        <div class="pp-cover-in">
+          <img
+            src="../images/reseau_image.webp"
+            alt="Installation et configuration d'un environnement Debian sous VirtualBox"
+          />
+        </div>
+      </div>
+
+      <div class="pp-body">
+        <section class="pp-sec reveal" style="padding: 0">
+          <div class="pp-sec-head">
+            <span class="idx">01</span>
+            <h2>Aperçu du projet</h2>
           </div>
-        </div>
-      </section>
-      <section class="pp-sec reveal" style="padding:0">
-        <div class="pp-sec-head"><span class="idx">04</span>
-          <h2>Apprentissages</h2>
-        </div>
-        <p>Cette SAE m'a permis de comprendre concrètement le fonctionnement d'un système Linux : partitionnement,
-          systèmes de fichiers, gestion des utilisateurs, des groupes et des permissions.</p>
-        <p>L'écriture de scripts Bash d'automatisation (création d'utilisateurs, manipulation de timestamps, édition de
-          fichiers avec sed) m'a donné de solides bases en ligne de commande, indispensables pour tout développeur.</p>
-      </section>
-      <section class="pp-sec reveal" style="padding:0">
-        <div class="pp-sec-head"><span class="idx">05</span>
-          <h2>Livrables</h2>
-        </div>
-        <div class="pp-deliv">
-          <a class="btn" href="https://github.com/YaelBetton/GestionBibliotheque" target="_blank" rel="noopener"
-            data-hover>🔗 Scripts GitHub</a>
-          <a class="btn" href="https://github.com/YaelBetton/GestionBibliotheque/blob/main/README.md" target="_blank"
-            rel="noopener" data-hover>📄 README</a>
-          <a class="btn" href="../ancien_portfolio/Portfolio-site/compteRendu/Compte%20rendu%20SAE%20S1.03.pdf"
-            target="_blank" rel="noopener" data-hover>📄 Compte rendu S1.03</a>
-        </div>
-      </section>
+          <p>
+            Dans le cadre de la SAE S1.03, nous avons configuré une machine
+            virtuelle (VM) performante en utilisant Oracle VirtualBox. Les
+            réglages techniques incluent 8 Go de RAM, 8 cœurs CPU et un disque
+            de 16 Go. L'installation de Debian 12.2.0 a été faite graphiquement
+            avec un découpage précis du disque.
+          </p>
+          <p>
+            Nous avons créé manuellement une partition ext4 pour le système (/)
+            et une partition swap de 2 Go pour la mémoire d'urgence. Une fois
+            l'OS prêt, nous avons installé les outils de code et créé des
+            scripts d'automatisation en Bash.
+          </p>
+        </section>
+        <section class="pp-sec reveal" style="padding: 0">
+          <div class="pp-sec-head">
+            <span class="idx">02</span>
+            <h2>Fonctionnalités principales</h2>
+          </div>
+          <ul class="pp-list">
+            <li>
+              Machine virtuelle Debian 12 configurée sous Oracle VirtualBox (8
+              Go RAM, 8 cœurs, 16 Go de disque)
+            </li>
+            <li>
+              Partitionnement manuel : partition système ext4 et swap de 2 Go
+            </li>
+            <li>
+              Gestion des utilisateurs et des droits (groupe sudo via gpasswd,
+              permissions chmod)
+            </li>
+            <li>
+              Installation manuelle d'outils de développement (VS Code via dpkg)
+            </li>
+            <li>
+              Script groupe.bash : création d'utilisateurs et de groupes avec
+              permissions 740
+            </li>
+            <li>Script comptemps.bash : gestion des timestamps UNIX</li>
+            <li>
+              Script demande.bash : modification de fichiers avec la commande
+              sed
+            </li>
+          </ul>
+        </section>
+        <section class="pp-sec reveal" style="padding: 0">
+          <div class="pp-sec-head">
+            <span class="idx">03</span>
+            <h2>Compétence BUT démontrée</h2>
+          </div>
+          <div class="pp-comp">
+            <span class="pp-ac"
+              >C3 : Administrer des systèmes — AC13.03 · Installer et configurer
+              un système d'exploitation et des outils de développement</span
+            >
+            <h3>
+              SAE S1.03 — Installation et configuration d'un environnement
+              Debian sous VirtualBox
+            </h3>
+            <span class="pp-level">Niveau estimé : <b>3</b> — Autonomie</span>
+            <p>
+              <strong>Description :</strong> Nous avons configuré une machine
+              virtuelle (VM) performante en utilisant Oracle VirtualBox. Les
+              réglages techniques incluent 8 Go de RAM, 8 cœurs CPU et un disque
+              de 16 Go. L'installation de Debian 12.2.0 a été faite
+              graphiquement avec un découpage précis du disque. Nous avons créé
+              manuellement une partition ext4 pour le système (/) et une
+              partition swap de 2 Go pour la mémoire d'urgence. Une fois l'OS
+              prêt, nous avons installé les outils de code et créé des scripts
+              d'automatisation en Bash.
+            </p>
+            <p>
+              <strong>Mon rôle :</strong> Je me suis occupé de la partie
+              logicielle et de la sécurité du système. J'ai géré le
+              partitionnement (choix du format ext4 et du swap) et l'ajout de
+              mon utilisateur au groupe sudo via gpasswd. J'ai installé VS Code
+              manuellement avec l'outil dpkg. Côté programmation, j'ai écrit
+              groupe.bash pour créer des utilisateurs et des groupes avec la
+              permission chmod 740. Enfin, j'ai aidé sur comptemps.bash pour la
+              gestion des timestamps UNIX et sur demande.bash pour modifier des
+              fichiers avec la commande sed.
+            </p>
+            <div class="pp-reflex">
+              <h4>Analyse réflexive</h4>
+              <p>
+                Ce projet m'a fait découvrir l'administration système de
+                l'intérieur : comprendre ce qui se passe sous le capot d'un OS,
+                du partitionnement du disque à la gestion fine des permissions.
+                Travailler en ligne de commande et automatiser des tâches
+                répétitives en Bash m'a appris la rigueur — une erreur de
+                permission ou de partition ne pardonne pas — et m'a donné des
+                réflexes que je réutilise sur tous mes environnements de
+                développement.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="pp-sec reveal" style="padding: 0">
+          <div class="pp-sec-head">
+            <span class="idx">04</span>
+            <h2>Apprentissages</h2>
+          </div>
+          <p>
+            Cette SAE m'a permis de comprendre concrètement le fonctionnement
+            d'un système Linux : partitionnement, systèmes de fichiers, gestion
+            des utilisateurs, des groupes et des permissions.
+          </p>
+          <p>
+            L'écriture de scripts Bash d'automatisation (création
+            d'utilisateurs, manipulation de timestamps, édition de fichiers avec
+            sed) m'a donné de solides bases en ligne de commande, indispensables
+            pour tout développeur.
+          </p>
+        </section>
+        <section class="pp-sec reveal" style="padding: 0">
+          <div class="pp-sec-head">
+            <span class="idx">05</span>
+            <h2>Livrables</h2>
+          </div>
+          <div class="pp-deliv">
+            <a
+              class="btn"
+              href="https://github.com/YaelBetton/GestionBibliotheque"
+              target="_blank"
+              rel="noopener"
+              data-hover
+              >🔗 Scripts GitHub</a
+            >
+            <a
+              class="btn"
+              href="https://github.com/YaelBetton/GestionBibliotheque/blob/main/README.md"
+              target="_blank"
+              rel="noopener"
+              data-hover
+              >📄 README</a
+            >
+            <a
+              class="btn"
+              href="../ancien_portfolio/Portfolio-site/compteRendu/Compte%20rendu%20SAE%20S1.03.pdf"
+              target="_blank"
+              rel="noopener"
+              data-hover
+              >📄 Compte rendu S1.03</a
+            >
+          </div>
+        </section>
+      </div>
 
-    </div>
+      <a class="pp-next" href="project-limoges-habitat.html" data-hover>
+        <span>Projet suivant</span>
+        <b>Limoges Habitat</b>
+      </a>
+    </main>
 
-    <a class="pp-next" href="project-limoges-habitat.html" data-hover>
-      <span>Projet suivant</span>
-      <b>Limoges Habitat</b>
-    </a>
-  </main>
+    <footer>
+      <span>© 2026 Yaël Betton</span>
+      <span>Nouvelle-Aquitaine, France</span>
+      <span>Portfolio personnel</span>
+    </footer>
 
-  <footer>
-    <span>© 2026 Yaël Betton</span>
-    <span>Nouvelle-Aquitaine, France</span>
-    <span>Portfolio personnel</span>
-  </footer>
-
-  <script src="../js/project.js"></script>
-
-</body>
-
+    <script src="../js/script.js"></script>
+  </body>
 </html>

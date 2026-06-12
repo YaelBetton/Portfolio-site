@@ -1,163 +1,264 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MiniJeux — Portfolio Yaël Betton</title>
+    <meta
+      name="description"
+      content="MiniJeux — collection de jeux en Python (morpion, allumettes, devinettes) avec robots à plusieurs niveaux de difficulté, dont un algorithme Minimax."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <script>
+      try {
+        if (localStorage.getItem("theme") === "light")
+          document.documentElement.classList.add("light");
+      } catch (e) {}
+    </script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MiniJeux — Portfolio Yaël Betton</title>
-  <meta name="description"
-    content="MiniJeux — collection de jeux en Python (morpion, allumettes, devinettes) avec robots à plusieurs niveaux de difficulté, dont un algorithme Minimax.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="../css/styles.css">
-  <script>try { if (localStorage.getItem('theme') === 'light') document.documentElement.classList.add('light'); } catch (e) { }</script>
-</head>
+  <body>
+    <!-- Curseur -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
 
-<body>
+    <div class="scroll-progress" id="scrollProgress"></div>
 
-  <!-- Curseur -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-dot" id="cursorDot"></div>
-
-  <div class="scroll-progress" id="scrollProgress"></div>
-
-  <!-- Navigation -->
-  <nav class="nav" id="nav">
-    <a class="nav-logo" href="../portfolio-yael-betton_2.html" data-hover>YB</a>
-    <div class="nav-right">
-      <ul class="nav-links">
-        <li><a href="../portfolio-yael-betton_2.html#projets" data-hover>Tous les projets</a></li>
-        <li><a href="../portfolio-yael-betton_2.html#contact" data-hover>Contact</a></li>
-      </ul>
-      <button class="theme-toggle" id="themeToggle" type="button" data-hover
-        aria-label="Basculer entre mode clair et mode sombre">
-        <i class="tt-dot" aria-hidden="true"></i><span class="tt-txt">Jour</span>
-      </button>
-    </div>
-  </nav>
-
-  <main class="pp-main">
-    <div class="pp-hero">
-      <a class="pp-back" href="../portfolio-yael-betton_2.html#projets" data-hover>← Retour aux projets</a>
-      <div class="pp-eyebrow">Projet académique · IA & Algorithmique</div>
-      <h1 class="pp-title">Mini<span class="accent">Jeux</span></h1>
-      <div class="pp-tech"><span>Python</span><span>Minimax</span><span>JSON</span></div>
-    </div>
-
-    <div class="pp-cover reveal">
-      <div class="pp-cover-in"><img src="../images/morpion_jeu.webp"
-          alt="MiniJeux — morpion, allumettes et devinettes en Python"></div>
-    </div>
-
-    <div class="pp-body">
-      <section class="pp-sec reveal" style="padding:0">
-        <div class="pp-sec-head"><span class="idx">01</span>
-          <h2>Aperçu du projet</h2>
-        </div>
-        <p>MiniJeux est une collection de jeux développée en Python, conçue pour explorer les concepts fondamentaux de
-          la programmation tout en créant des expériences ludiques. Le projet regroupe plusieurs jeux classiques : un
-          jeu de devinettes, un morpion, et le jeu des allumettes.</p>
-        <p>Chaque jeu propose différents modes de difficulté grâce à l'implémentation d'intelligences artificielles de
-          différents niveaux. Les joueurs peuvent ainsi s'affronter contre des robots faciles, moyens ou difficiles,
-          offrant une expérience progressive et stimulante.</p>
-      </section>
-      <section class="pp-sec reveal" style="padding:0">
-        <div class="pp-sec-head"><span class="idx">02</span>
-          <h2>Fonctionnalités principales</h2>
-        </div>
-        <ul class="pp-list">
-          <li>Jeu de devinettes avec système d'indices progressifs pour guider le joueur</li>
-          <li>Morpion (Tic-Tac-Toe) avec possibilité de jouer contre l'ordinateur ou un autre joueur</li>
-          <li>Jeu des allumettes avec stratégies d'IA optimisées pour différents niveaux</li>
-          <li>Système de robots avec trois niveaux de difficulté (facile, moyen, difficile)</li>
-          <li>Sauvegarde des scores et statistiques des parties jouées au format JSON</li>
-          <li>Interface en ligne de commande claire et intuitive</li>
-          <li>Gestion des règles et validation automatique des coups</li>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+      <a class="nav-logo" href="../index.html" data-hover>YB</a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li>
+            <a href="../index.html#projets" data-hover>Tous les projets</a>
+          </li>
+          <li><a href="../index.html#contact" data-hover>Contact</a></li>
         </ul>
-      </section>
-      <section class="pp-sec reveal" style="padding:0">
-        <div class="pp-sec-head"><span class="idx">03</span>
-          <h2>Technologies utilisées</h2>
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          type="button"
+          data-hover
+          aria-label="Basculer entre mode clair et mode sombre"
+        >
+          <i class="tt-dot" aria-hidden="true"></i
+          ><span class="tt-txt">Jour</span>
+        </button>
+      </div>
+    </nav>
+
+    <main class="pp-main">
+      <div class="pp-hero">
+        <a class="pp-back" href="../index.html#projets" data-hover
+          >← Retour aux projets</a
+        >
+        <div class="pp-eyebrow">Projet académique · IA & Algorithmique</div>
+        <h1 class="pp-title">Mini<span class="accent">Jeux</span></h1>
+        <div class="pp-tech">
+          <span>Python</span><span>Minimax</span><span>JSON</span>
         </div>
-        <p>Le projet est entièrement développé en <strong>Python</strong>, un langage particulièrement adapté pour
-          l'apprentissage de la programmation et le développement d'algorithmes. Sa syntaxe claire et sa grande
-          lisibilité en font un choix idéal pour ce type de projet.</p>
-        <p><strong>JSON</strong> est utilisé pour la persistence des données, notamment pour sauvegarder les scores,
-          l'historique des parties et les paramètres de configuration. Ce format léger et lisible facilite le stockage
-          et la manipulation des données de jeu.</p>
-      </section>
-      <section class="pp-sec reveal" style="padding:0">
-        <div class="pp-sec-head"><span class="idx">04</span>
-          <h2>Compétence BUT démontrée</h2>
+      </div>
+
+      <div class="pp-cover reveal">
+        <div class="pp-cover-in">
+          <img
+            src="../images/morpion_jeu.webp"
+            alt="MiniJeux — morpion, allumettes et devinettes en Python"
+          />
         </div>
-        <div class="pp-comp">
-          <span class="pp-ac">C2 : Optimiser des applications — AC12.03 · Formaliser et mettre en œuvre des outils
-            mathématiques pour l'informatique</span>
-          <h3>MiniJeux — Collection de jeux en Python avec IA (Morpion, Allumettes, Devinettes)</h3>
-          <span class="pp-level">Niveau estimé : <b>3</b> — Autonomie</span>
-          <p><strong>Description :</strong> Dans le cadre d'un projet Python, j'ai développé une collection de mini-jeux
-            intégrant des robots à plusieurs niveaux de difficulté. Pour le morpion, le robot « niveau difficile »
-            devait jouer de façon optimale, ce qui impliquait d'implémenter un vrai algorithme mathématique de théorie
-            des jeux. Pour le jeu des allumettes, la stratégie gagnante repose sur une propriété mathématique.</p>
-          <p><strong>Mon rôle :</strong> J'ai conçu et implémenté l'algorithme Minimax pour le bot difficile du morpion
-            : l'algorithme explore récursivement tous les états possibles du jeu, évalue chaque issue (victoire,
-            défaite, nul) et remonte le coup optimal. J'ai également modélisé la stratégie gagnante du jeu des
-            allumettes basée sur la congruence modulo (n mod (k+1) = 0), pour le bot niveau difficile, et introduit
-            volontairement des erreurs probabilistes pour les bots de niveau inférieur. Les scores et statistiques ont
-            été persistés en JSON.</p>
-          <div class="pp-reflex">
-            <h4>Analyse réflexive</h4>
-            <p>La difficulté principale a été de comprendre le fonctionnement de Minimax avant de l'implémenter : il
-              fallait modéliser l'arbre des états, attribuer des scores aux feuilles et propager ces scores vers la
-              racine. Ce n'est pas trivial à implémenter pour la première fois. Sur le plan des softskills, ce projet a
-              exigé beaucoup de persévérance : comprendre un algorithme sur le papier est une chose, le déboguer dans
-              une récursion profonde en est une autre.</p>
+      </div>
+
+      <div class="pp-body">
+        <section class="pp-sec reveal" style="padding: 0">
+          <div class="pp-sec-head">
+            <span class="idx">01</span>
+            <h2>Aperçu du projet</h2>
           </div>
-        </div>
-      </section>
-      <section class="pp-sec reveal" style="padding:0">
-        <div class="pp-sec-head"><span class="idx">05</span>
-          <h2>Apprentissages</h2>
-        </div>
-        <p>Ce projet m'a permis de consolider mes bases en algorithmique : modélisation d'un arbre d'états, récursivité,
-          évaluation et propagation de scores avec Minimax, et application directe de propriétés mathématiques
-          (congruence modulo) dans une stratégie de jeu.</p>
-        <p>La persistance des données en JSON et la conception de robots à difficulté progressive m'ont également appris
-          à structurer un programme Python proprement, du cœur algorithmique jusqu'à l'expérience de jeu.</p>
-      </section>
-      <section class="pp-sec reveal" style="padding:0">
-        <div class="pp-sec-head"><span class="idx">06</span>
-          <h2>Livrables</h2>
-        </div>
-        <div class="pp-deliv">
-          <a class="btn" href="https://github.com/YaelBetton/MiniGames" target="_blank" rel="noopener" data-hover>🔗
-            Code source GitHub</a>
-          <a class="btn" href="https://github.com/YaelBetton/MiniGames/blob/main/README.md" target="_blank"
-            rel="noopener" data-hover>📄 README algorithmes</a>
-          <a class="btn" href="../ancien_portfolio/Portfolio-site/compteRendu/Compte%20rendu%20S.A.E%20S1.02.pdf"
-            target="_blank" rel="noopener" data-hover>📄 Compte rendu S1.02</a>
-        </div>
-      </section>
+          <p>
+            MiniJeux est une collection de jeux développée en Python, conçue
+            pour explorer les concepts fondamentaux de la programmation tout en
+            créant des expériences ludiques. Le projet regroupe plusieurs jeux
+            classiques : un jeu de devinettes, un morpion, et le jeu des
+            allumettes.
+          </p>
+          <p>
+            Chaque jeu propose différents modes de difficulté grâce à
+            l'implémentation d'intelligences artificielles de différents
+            niveaux. Les joueurs peuvent ainsi s'affronter contre des robots
+            faciles, moyens ou difficiles, offrant une expérience progressive et
+            stimulante.
+          </p>
+        </section>
+        <section class="pp-sec reveal" style="padding: 0">
+          <div class="pp-sec-head">
+            <span class="idx">02</span>
+            <h2>Fonctionnalités principales</h2>
+          </div>
+          <ul class="pp-list">
+            <li>
+              Jeu de devinettes avec système d'indices progressifs pour guider
+              le joueur
+            </li>
+            <li>
+              Morpion (Tic-Tac-Toe) avec possibilité de jouer contre
+              l'ordinateur ou un autre joueur
+            </li>
+            <li>
+              Jeu des allumettes avec stratégies d'IA optimisées pour différents
+              niveaux
+            </li>
+            <li>
+              Système de robots avec trois niveaux de difficulté (facile, moyen,
+              difficile)
+            </li>
+            <li>
+              Sauvegarde des scores et statistiques des parties jouées au format
+              JSON
+            </li>
+            <li>Interface en ligne de commande claire et intuitive</li>
+            <li>Gestion des règles et validation automatique des coups</li>
+          </ul>
+        </section>
+        <section class="pp-sec reveal" style="padding: 0">
+          <div class="pp-sec-head">
+            <span class="idx">03</span>
+            <h2>Technologies utilisées</h2>
+          </div>
+          <p>
+            Le projet est entièrement développé en <strong>Python</strong>, un
+            langage particulièrement adapté pour l'apprentissage de la
+            programmation et le développement d'algorithmes. Sa syntaxe claire
+            et sa grande lisibilité en font un choix idéal pour ce type de
+            projet.
+          </p>
+          <p>
+            <strong>JSON</strong> est utilisé pour la persistence des données,
+            notamment pour sauvegarder les scores, l'historique des parties et
+            les paramètres de configuration. Ce format léger et lisible facilite
+            le stockage et la manipulation des données de jeu.
+          </p>
+        </section>
+        <section class="pp-sec reveal" style="padding: 0">
+          <div class="pp-sec-head">
+            <span class="idx">04</span>
+            <h2>Compétence BUT démontrée</h2>
+          </div>
+          <div class="pp-comp">
+            <span class="pp-ac"
+              >C2 : Optimiser des applications — AC12.03 · Formaliser et mettre
+              en œuvre des outils mathématiques pour l'informatique</span
+            >
+            <h3>
+              MiniJeux — Collection de jeux en Python avec IA (Morpion,
+              Allumettes, Devinettes)
+            </h3>
+            <span class="pp-level">Niveau estimé : <b>3</b> — Autonomie</span>
+            <p>
+              <strong>Description :</strong> Dans le cadre d'un projet Python,
+              j'ai développé une collection de mini-jeux intégrant des robots à
+              plusieurs niveaux de difficulté. Pour le morpion, le robot «
+              niveau difficile » devait jouer de façon optimale, ce qui
+              impliquait d'implémenter un vrai algorithme mathématique de
+              théorie des jeux. Pour le jeu des allumettes, la stratégie
+              gagnante repose sur une propriété mathématique.
+            </p>
+            <p>
+              <strong>Mon rôle :</strong> J'ai conçu et implémenté l'algorithme
+              Minimax pour le bot difficile du morpion : l'algorithme explore
+              récursivement tous les états possibles du jeu, évalue chaque issue
+              (victoire, défaite, nul) et remonte le coup optimal. J'ai
+              également modélisé la stratégie gagnante du jeu des allumettes
+              basée sur la congruence modulo (n mod (k+1) = 0), pour le bot
+              niveau difficile, et introduit volontairement des erreurs
+              probabilistes pour les bots de niveau inférieur. Les scores et
+              statistiques ont été persistés en JSON.
+            </p>
+            <div class="pp-reflex">
+              <h4>Analyse réflexive</h4>
+              <p>
+                La difficulté principale a été de comprendre le fonctionnement
+                de Minimax avant de l'implémenter : il fallait modéliser l'arbre
+                des états, attribuer des scores aux feuilles et propager ces
+                scores vers la racine. Ce n'est pas trivial à implémenter pour
+                la première fois. Sur le plan des softskills, ce projet a exigé
+                beaucoup de persévérance : comprendre un algorithme sur le
+                papier est une chose, le déboguer dans une récursion profonde en
+                est une autre.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="pp-sec reveal" style="padding: 0">
+          <div class="pp-sec-head">
+            <span class="idx">05</span>
+            <h2>Apprentissages</h2>
+          </div>
+          <p>
+            Ce projet m'a permis de consolider mes bases en algorithmique :
+            modélisation d'un arbre d'états, récursivité, évaluation et
+            propagation de scores avec Minimax, et application directe de
+            propriétés mathématiques (congruence modulo) dans une stratégie de
+            jeu.
+          </p>
+          <p>
+            La persistance des données en JSON et la conception de robots à
+            difficulté progressive m'ont également appris à structurer un
+            programme Python proprement, du cœur algorithmique jusqu'à
+            l'expérience de jeu.
+          </p>
+        </section>
+        <section class="pp-sec reveal" style="padding: 0">
+          <div class="pp-sec-head">
+            <span class="idx">06</span>
+            <h2>Livrables</h2>
+          </div>
+          <div class="pp-deliv">
+            <a
+              class="btn"
+              href="https://github.com/YaelBetton/MiniGames"
+              target="_blank"
+              rel="noopener"
+              data-hover
+              >🔗 Code source GitHub</a
+            >
+            <a
+              class="btn"
+              href="https://github.com/YaelBetton/MiniGames/blob/main/README.md"
+              target="_blank"
+              rel="noopener"
+              data-hover
+              >📄 README algorithmes</a
+            >
+            <a
+              class="btn"
+              href="../ancien_portfolio/Portfolio-site/compteRendu/Compte%20rendu%20S.A.E%20S1.02.pdf"
+              target="_blank"
+              rel="noopener"
+              data-hover
+              >📄 Compte rendu S1.02</a
+            >
+          </div>
+        </section>
+      </div>
 
-    </div>
+      <a class="pp-next" href="project-debian.html" data-hover>
+        <span>Projet suivant</span>
+        <b>Environnement Debian</b>
+      </a>
+    </main>
 
-    <a class="pp-next" href="project-debian.html" data-hover>
-      <span>Projet suivant</span>
-      <b>Environnement Debian</b>
-    </a>
-  </main>
+    <footer>
+      <span>© 2026 Yaël Betton</span>
+      <span>Nouvelle-Aquitaine, France</span>
+      <span>Portfolio personnel</span>
+    </footer>
 
-  <footer>
-    <span>© 2026 Yaël Betton</span>
-    <span>Nouvelle-Aquitaine, France</span>
-    <span>Portfolio personnel</span>
-  </footer>
-
-  <script src="../js/project.js"></script>
-
-</body>
-
+    <script src="../js/script.js"></script>
+  </body>
 </html>

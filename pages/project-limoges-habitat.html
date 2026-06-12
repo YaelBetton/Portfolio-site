@@ -1,200 +1,311 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Limoges Habitat — Portfolio Yaël Betton</title>
+    <meta
+      name="description"
+      content="Stage chez Limoges Habitat — phase 4 d'un système GED : traitement NLP, extraction PDF/OCR, RabbitMQ, OpenSearch."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <script>
+      try {
+        if (localStorage.getItem("theme") === "light")
+          document.documentElement.classList.add("light");
+      } catch (e) {}
+    </script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Limoges Habitat — Portfolio Yaël Betton</title>
-  <meta name="description"
-    content="Stage chez Limoges Habitat — phase 4 d'un système GED : traitement NLP, extraction PDF/OCR, RabbitMQ, OpenSearch.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="../css/styles.css">
-  <script>try { if (localStorage.getItem('theme') === 'light') document.documentElement.classList.add('light'); } catch (e) { }</script>
-</head>
+  <body>
+    <!-- Curseur -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
 
-<body>
+    <div class="scroll-progress" id="scrollProgress"></div>
 
-  <!-- Curseur -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-dot" id="cursorDot"></div>
-
-  <div class="scroll-progress" id="scrollProgress"></div>
-
-  <!-- Navigation -->
-  <nav class="nav" id="nav">
-    <a class="nav-logo" href="../portfolio-yael-betton_2.html" data-hover>YB</a>
-    <div class="nav-right">
-      <ul class="nav-links">
-        <li><a href="../portfolio-yael-betton_2.html#projets" data-hover>Tous les projets</a></li>
-        <li><a href="../portfolio-yael-betton_2.html#contact" data-hover>Contact</a></li>
-      </ul>
-      <button class="theme-toggle" id="themeToggle" type="button" data-hover
-        aria-label="Basculer entre mode clair et mode sombre">
-        <i class="tt-dot" aria-hidden="true"></i><span class="tt-txt">Jour</span>
-      </button>
-    </div>
-  </nav>
-
-  <main class="pp-main">
-    <div class="pp-hero">
-      <a class="pp-back" href="../portfolio-yael-betton_2.html#projets" data-hover>← Retour aux projets</a>
-      <div class="pp-eyebrow">Stage · Gestion Électronique de Documents</div>
-      <h1 class="pp-title">Limoges <span class="accent">Habitat</span></h1>
-      <div class="pp-tech">
-        <span>Node.js</span><span>PostgreSQL</span><span>RabbitMQ</span><span>OpenSearch</span><span>NLP</span><span>Apache
-          Tika</span></div>
-    </div>
-
-    <div class="pp-cover reveal">
-      <div class="pp-cover-in is-mono"><b>LH</b></div>
-    </div>
-
-    <div class="pp-body">
-      <section class="pp-sec reveal" style="padding:0">
-        <div class="pp-sec-head"><span class="idx">01</span>
-          <h2>Aperçu du projet</h2>
-        </div>
-        <p>Limoges Habitat est une entreprise de gestion locative sociale. Lors de mon stage (avril à juin 2026), j'ai
-          participé au développement de la phase 4 de leur système GED interne (Gestion Électronique de Documents).</p>
-        <p>L'objectif était de créer un système capable de centraliser, indexer et retrouver les documents internes
-          (baux, correspondances, dossiers administratifs) de manière intelligente. Ma phase 4 a spécifiquement porté
-          sur l'affinage du pipeline de traitement textuel : extraction robuste des données depuis des PDFs et images,
-          normalisation du texte, suppression des éléments parasites, vérification orthographique, et finalement une
-          couche d'analyse sémantique pour regrouper automatiquement les documents similaires.</p>
-      </section>
-
-      <section class="pp-sec reveal" style="padding:0">
-        <div class="pp-sec-head"><span class="idx">02</span>
-          <h2>Fonctionnalités principales</h2>
-        </div>
-        <ul class="pp-list">
-          <li>Pipeline textCleaner.js en 6 étapes : protection des motifs sensibles, suppression du bruit, tokenization
-            agressif français, stopwords (~200 mots français), vérification dictionnaire (Levenshtein ≤ 2), filtre
-            sémantique</li>
-          <li>Extraction PDF/image via Apache Tika 3.3.0 avec OCR Tesseract intégré nativement</li>
-          <li>Orchestration worker asynchrone RabbitMQ : 3 files de priorité (urgent / normal / bulk) via canal.get()
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+      <a class="nav-logo" href="../index.html" data-hover>YB</a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li>
+            <a href="../index.html#projets" data-hover>Tous les projets</a>
           </li>
-          <li>Gestion des erreurs distribuées : nack + requeue pour les erreurs infrastructure, ack + marquage FAILED en
-            base pour les erreurs métier</li>
-          <li>Indexation sémantique OpenSearch avec analyzer custom français (lowercase + asciifolding)</li>
-          <li>Calibrage automatique du seuil de similarité vectorielle (all-MiniLM-L6-v2) à 0.20 après testing</li>
-          <li>Détection de type de document via dossier d'accueil en répertoire partagé (workerDossier)</li>
-          <li>Tests Jest + Babel pour validation de chaque étape du flux</li>
+          <li><a href="../index.html#contact" data-hover>Contact</a></li>
         </ul>
-      </section>
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          type="button"
+          data-hover
+          aria-label="Basculer entre mode clair et mode sombre"
+        >
+          <i class="tt-dot" aria-hidden="true"></i
+          ><span class="tt-txt">Jour</span>
+        </button>
+      </div>
+    </nav>
 
-      <section class="pp-sec reveal" style="padding:0">
-        <div class="pp-sec-head"><span class="idx">03</span>
-          <h2>Technologies utilisées</h2>
+    <main class="pp-main">
+      <div class="pp-hero">
+        <a class="pp-back" href="../index.html#projets" data-hover
+          >← Retour aux projets</a
+        >
+        <div class="pp-eyebrow">Stage · Gestion Électronique de Documents</div>
+        <h1 class="pp-title">Limoges <span class="accent">Habitat</span></h1>
+        <div class="pp-tech">
+          <span>Node.js</span><span>PostgreSQL</span><span>RabbitMQ</span
+          ><span>OpenSearch</span><span>NLP</span><span>Apache Tika</span>
         </div>
-        <p><strong>Backend :</strong> Node.js (API + workers asynchrones), PostgreSQL avec migrations Knex.js, RabbitMQ
-          pour l'orchestration des tâches en arrière-plan.</p>
-        <p><strong>Stockage & indexation :</strong> Garage (S3-compatible) pour les fichiers bruts, OpenSearch pour
-          l'indexation textuelle et vectorielle.</p>
-        <p><strong>Traitement textuel :</strong> Apache Tika 3.3.0 (extraction multiformat), nspell + Grammalecte
-          (vérification orthographique française), @xenova/transformers / all-MiniLM-L6-v2 (embeddings sémantiques).</p>
-        <p><strong>Tests :</strong> Jest + Babel pour valider le pipeline à chaque étape.</p>
-      </section>
+      </div>
 
-      <section class="pp-sec reveal" style="padding:0">
-        <div class="pp-sec-head"><span class="idx">04</span>
-          <h2>Mon rôle</h2>
-        </div>
-        <p>J'ai implémenté l'ensemble du pipeline textCleaner.js en cohérence avec l'architecture existante. Cela
-          comprenait la conception de 6 étapes d'ordre critique : protection des motifs sensibles (numéros, dates),
-          suppression du bruit (accents, caractères parasites), tokenization agressif, application d'une liste de
-          stopwords de ~200 mots français, vérification dictionnaire avec distance Levenshtein, et enfin un filtre
-          sémantique basé sur les embeddings.</p>
-        <p>J'ai aussi intégré Apache Tika 3.3.0 pour extraire le texte et les images des PDFs, orchestré les workers
-          RabbitMQ pour gérer l'asynchrone sur 3 niveaux de priorité, calibré le seuil de similarité sémantique à 0.20
-          après test empirique, et configuré OpenSearch avec un analyzer français custom pour l'indexation. Déboguer un
-          système distribué impliquant des files, des workers, une API et un index a demandé rigueur et persévérance.
-        </p>
-      </section>
+      <div class="pp-cover reveal">
+        <div class="pp-cover-in is-mono"><b>LH</b></div>
+      </div>
 
-      <section class="pp-sec reveal" style="padding:0">
-        <div class="pp-sec-head"><span class="idx">05</span>
-          <h2>Compétence BUT démontrée</h2>
-        </div>
-        <div class="pp-comp">
-          <span class="pp-ac">C2 : Optimiser des applications — AC21.03 · Adapter une application à différents
-            contextes</span>
-          <h3>Limoges Habitat — Phase 4 du système GED</h3>
-          <span class="pp-level">Niveau estimé : <b>4</b> — Autonomie</span>
-          <p><strong>Description :</strong> Dans le cadre d'un vrai stage en entreprise, j'ai développé la phase 4 d'un
-            système GED conçu pour centraliser et retrouver des documents internes. L'enjeu était de créer un pipeline
-            de traitement textuel robuste capable de gérer des documents de qualité variable (PDFs scannés, images mal
-            orientées, texte corrompu) et de les préparer pour l'indexation sémantique. Cela m'a imposé d'adapter ma
-            solution à un contexte métier réel : comprendre les besoins des utilisateurs PSI, respecter l'architecture
-            existante, déboguer en environnement de production, et itérer sur le seuil sémantique en fonction des cas
-            réels.</p>
-          <p><strong>Mon rôle :</strong> J'ai pris en charge la conception et l'implémentation du pipeline
-            textCleaner.js, l'intégration d'Apache Tika et Tesseract, l'orchestration des workers RabbitMQ (gestion des
-            3 files et des erreurs), le calibrage du seuil de similarité (0.20 validé empiriquement), la configuration
-            d'OpenSearch avec analyzer français, et le debugging systématique du flux de bout en bout. J'ai aussi
-            collaboré avec le superviseur Nicolas Bartkowiak (développeur) et l'équipe PSI pour valider les décisions
-            architecturales et répondre aux questions métier.</p>
-          <div class="pp-reflex">
-            <h4>Analyse réflexive</h4>
-            <p>Ce stage m'a montré la différence entre « faire du code » et « adapter une solution à un contexte réel ».
-              Un bug qu'on débogue en 10 minutes en labo peut prendre 2 heures en production quand 50 documents arrivent
-              simultanément dans 3 files différentes et qu'on ne sait pas d'où vient l'erreur. J'ai appris à
-              instrumenter correctement (logs structurés, traces d'exécution), à documenter les décisions (pourquoi 0.20
-              et pas 0.15 pour le seuil ?), et à communiquer avec des utilisateurs finaux qui ne sont pas des
-              développeurs. C'est aussi ici que j'ai vraiment compris que le NLP appliqué, ce n'est pas juste « passer
-              du texte dans un modèle » — c'est des dizaines de décisions d'ordre et de seuil qui impactent l'expérience
-              réelle.</p>
+      <div class="pp-body">
+        <section class="pp-sec reveal" style="padding: 0">
+          <div class="pp-sec-head">
+            <span class="idx">01</span>
+            <h2>Aperçu du projet</h2>
           </div>
-        </div>
-      </section>
+          <p>
+            Limoges Habitat est une entreprise de gestion locative sociale. Lors
+            de mon stage (avril à juin 2026), j'ai participé au développement de
+            la phase 4 de leur système GED interne (Gestion Électronique de
+            Documents).
+          </p>
+          <p>
+            L'objectif était de créer un système capable de centraliser, indexer
+            et retrouver les documents internes (baux, correspondances, dossiers
+            administratifs) de manière intelligente. Ma phase 4 a spécifiquement
+            porté sur l'affinage du pipeline de traitement textuel : extraction
+            robuste des données depuis des PDFs et images, normalisation du
+            texte, suppression des éléments parasites, vérification
+            orthographique, et finalement une couche d'analyse sémantique pour
+            regrouper automatiquement les documents similaires.
+          </p>
+        </section>
 
-      <section class="pp-sec reveal" style="padding:0">
-        <div class="pp-sec-head"><span class="idx">06</span>
-          <h2>Apprentissages</h2>
-        </div>
-        <p>Ce stage m'a apporté une expertise solide en traitement de texte appliqué : extraction multiformat (PDF,
-          image, OCR), normalisation robuste, vectorisation sémantique et seuillage empirique.</p>
-        <p>J'ai aussi découvert l'architecture scalable avec RabbitMQ et les workers asynchrones — comment penser en
-          termes de files, de retry, de deadline, et de gestion d'erreurs distribuées. PostgreSQL + Knex.js en contexte
-          réel (migrations versionnées, contraintes, indexation intelligente) m'a donné une rigueur que je n'aurais pas
-          eue en dev perso.</p>
-        <p>Enfin, la communication technique dans une vraie boîte — réunions de suivi, discuter des choix architecturaux
-          avec l'équipe, répondre aux questions des utilisateurs — a renforcé mes soft skills. Je me suis rendu compte
-          que bien expliquer une décision technique à un non-dev est un talent qui se cultive.</p>
-      </section>
+        <section class="pp-sec reveal" style="padding: 0">
+          <div class="pp-sec-head">
+            <span class="idx">02</span>
+            <h2>Fonctionnalités principales</h2>
+          </div>
+          <ul class="pp-list">
+            <li>
+              Pipeline textCleaner.js en 6 étapes : protection des motifs
+              sensibles, suppression du bruit, tokenization agressif français,
+              stopwords (~200 mots français), vérification dictionnaire
+              (Levenshtein ≤ 2), filtre sémantique
+            </li>
+            <li>
+              Extraction PDF/image via Apache Tika 3.3.0 avec OCR Tesseract
+              intégré nativement
+            </li>
+            <li>
+              Orchestration worker asynchrone RabbitMQ : 3 files de priorité
+              (urgent / normal / bulk) via canal.get()
+            </li>
+            <li>
+              Gestion des erreurs distribuées : nack + requeue pour les erreurs
+              infrastructure, ack + marquage FAILED en base pour les erreurs
+              métier
+            </li>
+            <li>
+              Indexation sémantique OpenSearch avec analyzer custom français
+              (lowercase + asciifolding)
+            </li>
+            <li>
+              Calibrage automatique du seuil de similarité vectorielle
+              (all-MiniLM-L6-v2) à 0.20 après testing
+            </li>
+            <li>
+              Détection de type de document via dossier d'accueil en répertoire
+              partagé (workerDossier)
+            </li>
+            <li>Tests Jest + Babel pour validation de chaque étape du flux</li>
+          </ul>
+        </section>
 
-      <section class="pp-sec reveal" style="padding:0">
-        <div class="pp-sec-head"><span class="idx">07</span>
-          <h2>Livrables</h2>
-        </div>
-        <div class="pp-deliv">
-          <a class="btn" href="https://gitlab.limogeshabitat.fr" target="_blank" rel="noopener" data-hover>🔗 GitLab
-            interne</a>
-          <a class="btn" href="#" target="_blank" rel="noopener" data-hover>📄 Rapport de stage</a>
-          <a class="btn" href="#" target="_blank" rel="noopener" data-hover>📋 Carnet de stage</a>
-        </div>
-      </section>
+        <section class="pp-sec reveal" style="padding: 0">
+          <div class="pp-sec-head">
+            <span class="idx">03</span>
+            <h2>Technologies utilisées</h2>
+          </div>
+          <p>
+            <strong>Backend :</strong> Node.js (API + workers asynchrones),
+            PostgreSQL avec migrations Knex.js, RabbitMQ pour l'orchestration
+            des tâches en arrière-plan.
+          </p>
+          <p>
+            <strong>Stockage & indexation :</strong> Garage (S3-compatible) pour
+            les fichiers bruts, OpenSearch pour l'indexation textuelle et
+            vectorielle.
+          </p>
+          <p>
+            <strong>Traitement textuel :</strong> Apache Tika 3.3.0 (extraction
+            multiformat), nspell + Grammalecte (vérification orthographique
+            française), @xenova/transformers / all-MiniLM-L6-v2 (embeddings
+            sémantiques).
+          </p>
+          <p>
+            <strong>Tests :</strong> Jest + Babel pour valider le pipeline à
+            chaque étape.
+          </p>
+        </section>
 
-    </div>
+        <section class="pp-sec reveal" style="padding: 0">
+          <div class="pp-sec-head">
+            <span class="idx">04</span>
+            <h2>Mon rôle</h2>
+          </div>
+          <p>
+            J'ai implémenté l'ensemble du pipeline textCleaner.js en cohérence
+            avec l'architecture existante. Cela comprenait la conception de 6
+            étapes d'ordre critique : protection des motifs sensibles (numéros,
+            dates), suppression du bruit (accents, caractères parasites),
+            tokenization agressif, application d'une liste de stopwords de ~200
+            mots français, vérification dictionnaire avec distance Levenshtein,
+            et enfin un filtre sémantique basé sur les embeddings.
+          </p>
+          <p>
+            J'ai aussi intégré Apache Tika 3.3.0 pour extraire le texte et les
+            images des PDFs, orchestré les workers RabbitMQ pour gérer
+            l'asynchrone sur 3 niveaux de priorité, calibré le seuil de
+            similarité sémantique à 0.20 après test empirique, et configuré
+            OpenSearch avec un analyzer français custom pour l'indexation.
+            Déboguer un système distribué impliquant des files, des workers, une
+            API et un index a demandé rigueur et persévérance.
+          </p>
+        </section>
 
-    <a class="pp-next" href="project-latice.html" data-hover>
-      <span>Projet suivant</span>
-      <b>Latice</b>
-    </a>
-  </main>
+        <section class="pp-sec reveal" style="padding: 0">
+          <div class="pp-sec-head">
+            <span class="idx">05</span>
+            <h2>Compétence BUT démontrée</h2>
+          </div>
+          <div class="pp-comp">
+            <span class="pp-ac"
+              >C2 : Optimiser des applications — AC21.03 · Adapter une
+              application à différents contextes</span
+            >
+            <h3>Limoges Habitat — Phase 4 du système GED</h3>
+            <span class="pp-level">Niveau estimé : <b>4</b> — Autonomie</span>
+            <p>
+              <strong>Description :</strong> Dans le cadre d'un vrai stage en
+              entreprise, j'ai développé la phase 4 d'un système GED conçu pour
+              centraliser et retrouver des documents internes. L'enjeu était de
+              créer un pipeline de traitement textuel robuste capable de gérer
+              des documents de qualité variable (PDFs scannés, images mal
+              orientées, texte corrompu) et de les préparer pour l'indexation
+              sémantique. Cela m'a imposé d'adapter ma solution à un contexte
+              métier réel : comprendre les besoins des utilisateurs PSI,
+              respecter l'architecture existante, déboguer en environnement de
+              production, et itérer sur le seuil sémantique en fonction des cas
+              réels.
+            </p>
+            <p>
+              <strong>Mon rôle :</strong> J'ai pris en charge la conception et
+              l'implémentation du pipeline textCleaner.js, l'intégration
+              d'Apache Tika et Tesseract, l'orchestration des workers RabbitMQ
+              (gestion des 3 files et des erreurs), le calibrage du seuil de
+              similarité (0.20 validé empiriquement), la configuration
+              d'OpenSearch avec analyzer français, et le debugging systématique
+              du flux de bout en bout. J'ai aussi collaboré avec le superviseur
+              Nicolas Bartkowiak (développeur) et l'équipe PSI pour valider les
+              décisions architecturales et répondre aux questions métier.
+            </p>
+            <div class="pp-reflex">
+              <h4>Analyse réflexive</h4>
+              <p>
+                Ce stage m'a montré la différence entre « faire du code » et «
+                adapter une solution à un contexte réel ». Un bug qu'on débogue
+                en 10 minutes en labo peut prendre 2 heures en production quand
+                50 documents arrivent simultanément dans 3 files différentes et
+                qu'on ne sait pas d'où vient l'erreur. J'ai appris à
+                instrumenter correctement (logs structurés, traces d'exécution),
+                à documenter les décisions (pourquoi 0.20 et pas 0.15 pour le
+                seuil ?), et à communiquer avec des utilisateurs finaux qui ne
+                sont pas des développeurs. C'est aussi ici que j'ai vraiment
+                compris que le NLP appliqué, ce n'est pas juste « passer du
+                texte dans un modèle » — c'est des dizaines de décisions d'ordre
+                et de seuil qui impactent l'expérience réelle.
+              </p>
+            </div>
+          </div>
+        </section>
 
-  <footer>
-    <span>© 2026 Yaël Betton</span>
-    <span>Nouvelle-Aquitaine, France</span>
-    <span>Portfolio personnel</span>
-  </footer>
+        <section class="pp-sec reveal" style="padding: 0">
+          <div class="pp-sec-head">
+            <span class="idx">06</span>
+            <h2>Apprentissages</h2>
+          </div>
+          <p>
+            Ce stage m'a apporté une expertise solide en traitement de texte
+            appliqué : extraction multiformat (PDF, image, OCR), normalisation
+            robuste, vectorisation sémantique et seuillage empirique.
+          </p>
+          <p>
+            J'ai aussi découvert l'architecture scalable avec RabbitMQ et les
+            workers asynchrones — comment penser en termes de files, de retry,
+            de deadline, et de gestion d'erreurs distribuées. PostgreSQL +
+            Knex.js en contexte réel (migrations versionnées, contraintes,
+            indexation intelligente) m'a donné une rigueur que je n'aurais pas
+            eue en dev perso.
+          </p>
+          <p>
+            Enfin, la communication technique dans une vraie boîte — réunions de
+            suivi, discuter des choix architecturaux avec l'équipe, répondre aux
+            questions des utilisateurs — a renforcé mes soft skills. Je me suis
+            rendu compte que bien expliquer une décision technique à un non-dev
+            est un talent qui se cultive.
+          </p>
+        </section>
 
-  <script src="../js/project.js"></script>
+        <section class="pp-sec reveal" style="padding: 0">
+          <div class="pp-sec-head">
+            <span class="idx">07</span>
+            <h2>Livrables</h2>
+          </div>
+          <div class="pp-deliv">
+            <a
+              class="btn"
+              href="https://gitlab.limogeshabitat.fr"
+              target="_blank"
+              rel="noopener"
+              data-hover
+              >🔗 GitLab interne</a
+            >
+            <a class="btn" href="#" target="_blank" rel="noopener" data-hover
+              >📄 Rapport de stage</a
+            >
+            <a class="btn" href="#" target="_blank" rel="noopener" data-hover
+              >📋 Carnet de stage</a
+            >
+          </div>
+        </section>
+      </div>
 
-</body>
+      <a class="pp-next" href="project-latice.html" data-hover>
+        <span>Projet suivant</span>
+        <b>Latice</b>
+      </a>
+    </main>
 
+    <footer>
+      <span>© 2026 Yaël Betton</span>
+      <span>Nouvelle-Aquitaine, France</span>
+      <span>Portfolio personnel</span>
+    </footer>
+
+    <script src="../js/script.js"></script>
+  </body>
 </html>
