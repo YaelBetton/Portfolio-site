@@ -1,164 +1,178 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LeGrand - Portfolio Yaël Betton</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LeGrand — Portfolio Yaël Betton</title>
+  <meta name="description"
+    content="Application web développée pour Legrand : génération automatisée de documents techniques pour l'assemblage industriel. Vue.js, Node.js, TypeScript, API REST.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script>try { if (localStorage.getItem('theme') === 'light') document.documentElement.classList.add('light'); } catch (e) { }</script>
 </head>
+
 <body>
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="../index.html">YB</a>
-            </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item">
-                    <a href="../index.html#home" class="nav-link">Accueil</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../index.html#about" class="nav-link">À propos de moi</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../index.html#skills" class="nav-link">Langages maîtrisés</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../index.html#projects" class="nav-link">Projets</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../index.html#contact" class="nav-link">Contact</a>
-                </li>
-            </ul>
-            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
-                <span>🌙</span>
-            </button>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+
+  <!-- Curseur -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <a class="nav-logo" href="../portfolio-yael-betton_2.html" data-hover>YB</a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="../portfolio-yael-betton_2.html#projets" data-hover>Tous les projets</a></li>
+        <li><a href="../portfolio-yael-betton_2.html#contact" data-hover>Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" type="button" data-hover
+        aria-label="Basculer entre mode clair et mode sombre">
+        <i class="tt-dot" aria-hidden="true"></i><span class="tt-txt">Jour</span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="pp-main">
+    <div class="pp-hero">
+      <a class="pp-back" href="../portfolio-yael-betton_2.html#projets" data-hover>← Retour aux projets</a>
+      <div class="pp-eyebrow">Application web · Client réel</div>
+      <h1 class="pp-title">LeGrand</h1>
+      <div class="pp-tech"><span>Vue.js</span><span>TypeScript</span><span>Node.js</span><span>API REST</span></div>
+    </div>
+
+    <div class="pp-cover reveal">
+      <div class="pp-cover-in"><img src="../images/conduireprojet_image.webp"
+          alt="Application web de génération documentaire pour Legrand"></div>
+    </div>
+
+    <div class="pp-body">
+      <section class="pp-sec reveal" style="padding:0">
+        <div class="pp-sec-head"><span class="idx">01</span>
+          <h2>Aperçu du projet</h2>
         </div>
-    </nav>
-
-    <section class="project-detail">
-        <div class="container">
-            <div class="project-detail-header">
-                <a href="../index.html#projects" class="back-link">← Retour aux projets</a>
-                <h1 class="project-detail-title">LeGrand</h1>
-                <div class="project-detail-meta">
-                    <span class="project-tech">Vue.js</span>
-                    <span class="project-tech">Node.js</span>
-                    <span class="project-tech">TypeScript</span>
-                </div>
-            </div>
-
-            <div class="project-detail-image">
-                <img src="../images/Logo_Legrand.webp" alt="LeGrand logo">
-            </div>
-
-            <div class="project-detail-content">
-                <div class="project-detail-section">
-                    <h2>Aperçu du projet</h2>
-                    <p>
-                        LeGrand est une application web développée pour simplifier et automatiser la création de documents techniques 
-                        destinés aux employés chargés de l'assemblage et de la mise en œuvre d'outils et produits industriels. Cette 
-                        solution vise à améliorer l'efficacité opérationnelle et à réduire les erreurs dans la production de documentation.
-                    </p>
-                    <p>
-                        L'application propose une interface intuitive permettant aux utilisateurs de générer rapidement des documents 
-                        standardisés en remplissant des formulaires structurés. Les documents sont ensuite formatés automatiquement 
-                        selon les normes de l'entreprise, ce qui garantit une cohérence et une qualité professionnelle.
-                    </p>
-                </div>
-
-                <div class="project-detail-section">
-                    <h2>Fonctionnalités principales</h2>
-                    <ul class="feature-list">
-                        <li>Générateur de documents techniques avec templates personnalisables selon les besoins</li>
-                        <li>Interface utilisateur moderne et responsive développée avec Vue.js</li>
-                        <li>Système de formulaires dynamiques s'adaptant au type de produit sélectionné</li>
-                        <li>Export des documents dans différents formats (PDF, Word, etc.)</li>
-                        <li>Gestion des utilisateurs avec différents niveaux d'accès et permissions</li>
-                        <li>Historique et versioning des documents créés pour assurer la traçabilité</li>
-                        <li>API REST développée avec Node.js pour gérer les données et la logique métier</li>
-                    </ul>
-                </div>
-
-                <div class="project-detail-section">
-                    <h2>Technologies utilisées</h2>
-                    <p>
-                        Le frontend de l'application est développé avec <strong>Vue.js</strong>, un framework JavaScript progressif 
-                        qui permet de créer des interfaces utilisateur réactives et performantes. <strong>TypeScript</strong> est utilisé 
-                        pour apporter un typage fort et améliorer la maintenabilité du code.
-                    </p>
-                    <p>
-                        Le backend repose sur <strong>Node.js</strong>, offrant une architecture légère et scalable. L'API REST gère 
-                        l'authentification, la validation des données, et la génération des documents. Une base de données relationnelle 
-                        stocke les informations des produits, utilisateurs et documents générés.
-                    </p>
-                </div>
-
-                <div class="project-detail-section">
-                    <h2>Compétences BUT démontrées</h2>
-                    
-                    <div class="competence-block">
-                        <h3>C5 : Conduire un projet</h3>
-                        <span class="comp-ac">AC15.03 – Identifier les acteurs et les différentes phases d'un cycle de développement</span>
-                        <p><strong>Description :</strong> Dans le cadre d'un projet en lien avec l'entreprise Legrand, nous avons développé une application web permettant aux employés chargés de l'assemblage industriel de générer automatiquement des documents techniques standardisés. Ce projet s'est déroulé dans un cadre semi-professionnel avec un client réel, ce qui nous a obligés à structurer notre travail selon un vrai cycle de développement : recueil des besoins, rédaction du backlog, sprints, livraisons intermédiaires et ajustements selon les retours.</p>
-                        <p><strong>Rôle personnel :</strong> J'ai participé à toutes les phases du cycle : j'ai contribué à l'analyse des besoins lors des échanges avec le client (Legrand), à la rédaction et priorisation du backlog (découpage en user stories, estimation), au développement itératif (frontend Vue.js / TypeScript, backend Node.js / API REST), aux phases de test et aux ajustements post-retour client. J'ai eu un rôle actif dans la communication avec le client pour clarifier les exigences et valider les livraisons.</p>
-                        <div class="analyse-reflexive">
-                            <h4>Analyse réflexive</h4>
-                            <p>La principale difficulté a été que les besoins du client évoluaient au fil des livraisons : ce qui semblait clair au départ se précisait (ou changeait) une fois que le client voyait une version concrète. Cela m'a appris à ne pas "sur-coder" trop tôt et à livrer des versions fonctionnelles rapidement pour valider les hypothèses. Sur le plan des softskills, ce projet a fortement développé mon sens de la communication : savoir reformuler un besoin client en termes techniques, mais aussi expliquer une contrainte technique à un non-développeur. Il a aussi renforcé mon organisation et ma capacité à prioriser : face à un backlog qui grandit, il faut trancher et justifier ses choix.</p>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="project-detail-section">
-                    <h2>Défis rencontrés</h2>
-                    <p>
-                        Le principal défi était de concevoir un système de templates suffisamment flexible pour s'adapter aux multiples 
-                        types de documents nécessaires, tout en restant simple d'utilisation pour les employés. Il fallait trouver le 
-                        bon équilibre entre personnalisation et standardisation.
-                    </p>
-                    <p>
-                        Un autre aspect complexe était la génération de documents PDF de haute qualité avec une mise en page professionnelle. 
-                        L'intégration de bibliothèques de génération de documents et l'optimisation des performances pour des documents 
-                        volumineux ont nécessité un travail approfondi.
-                    </p>
-                </div>
-
-                <div class="project-detail-section">
-                    <h2>Apprentissages</h2>
-                    <p>
-                        Ce projet m'a permis de développer une expertise complète en développement full-stack moderne. J'ai approfondi 
-                        mes compétences en Vue.js et découvert les bonnes pratiques de développement avec ce framework, notamment la 
-                        gestion d'état, les composants réutilisables, et la composition API.
-                    </p>
-                    <p>
-                        Côté backend, j'ai acquis de l'expérience dans la conception d'APIs REST robustes avec Node.js, la gestion 
-                        de l'authentification et des permissions, ainsi que l'optimisation des performances. Le travail en équipe et 
-                        la communication avec les utilisateurs finaux pour comprendre leurs besoins ont également été des aspects 
-                        enrichissants de ce projet professionnel.
-                    </p>
-                </div>
-
-                <div class="project-detail-links">
-                    <a href="https://github.com/Lamazaii/vytre" class="btn-primary" target="_blank" rel="noopener noreferrer">
-                        Voir le code source
-                    </a>
-                    <a href="https://github.com/Lamazaii/vytre/blob/main/README.md" class="btn-secondary" target="_blank" rel="noopener noreferrer">
-                        Documentation complète
-                    </a>
-                    <a href="../index.html#contact" class="btn-secondary">
-                        Me contacter
-                    </a>
-                </div>
-            </div>
+        <p>LeGrand est une application web développée pour simplifier et automatiser la création de documents techniques
+          destinés aux employés chargés de l'assemblage et de la mise en œuvre d'outils et produits industriels. Cette
+          solution vise à améliorer l'efficacité opérationnelle et à réduire les erreurs dans la production de
+          documentation.</p>
+        <p>L'application propose une interface intuitive permettant aux utilisateurs de générer rapidement des documents
+          standardisés en remplissant des formulaires structurés. Les documents sont ensuite formatés automatiquement
+          selon les normes de l'entreprise, ce qui garantit une cohérence et une qualité professionnelle.</p>
+      </section>
+      <section class="pp-sec reveal" style="padding:0">
+        <div class="pp-sec-head"><span class="idx">02</span>
+          <h2>Fonctionnalités principales</h2>
         </div>
-    </section>
+        <ul class="pp-list">
+          <li>Générateur de documents techniques avec templates personnalisables selon les besoins</li>
+          <li>Interface utilisateur moderne et responsive développée avec Vue.js</li>
+          <li>Système de formulaires dynamiques s'adaptant au type de produit sélectionné</li>
+          <li>Export des documents dans différents formats (PDF, Word, etc.)</li>
+          <li>Gestion des utilisateurs avec différents niveaux d'accès et permissions</li>
+          <li>Historique et versioning des documents créés pour assurer la traçabilité</li>
+          <li>API REST développée avec Node.js pour gérer les données et la logique métier</li>
+        </ul>
+      </section>
+      <section class="pp-sec reveal" style="padding:0">
+        <div class="pp-sec-head"><span class="idx">03</span>
+          <h2>Technologies utilisées</h2>
+        </div>
+        <p>Le frontend de l'application est développé avec <strong>Vue.js</strong>, un framework JavaScript progressif
+          qui permet de créer des interfaces utilisateur réactives et performantes. <strong>TypeScript</strong> est
+          utilisé pour apporter un typage fort et améliorer la maintenabilité du code.</p>
+        <p>Le backend repose sur <strong>Node.js</strong>, offrant une architecture légère et scalable. L'API REST gère
+          l'authentification, la validation des données, et la génération des documents. Une base de données
+          relationnelle stocke les informations des produits, utilisateurs et documents générés.</p>
+      </section>
+      <section class="pp-sec reveal" style="padding:0">
+        <div class="pp-sec-head"><span class="idx">04</span>
+          <h2>Compétence BUT démontrée</h2>
+        </div>
+        <div class="pp-comp">
+          <span class="pp-ac">C5 : Conduire un projet — AC15.03 · Identifier les acteurs et les différentes phases d'un
+            cycle de développement</span>
+          <h3>LeGrand — Application web de génération de documents techniques</h3>
+          <span class="pp-level">Niveau estimé : <b>3</b> — Autonomie</span>
+          <p><strong>Description :</strong> Dans le cadre d'un projet en lien avec l'entreprise Legrand, nous avons
+            développé une application web permettant aux employés chargés de l'assemblage industriel de générer
+            automatiquement des documents techniques standardisés. Ce projet s'est déroulé dans un cadre
+            semi-professionnel avec un client réel, ce qui nous a obligés à structurer notre travail selon un vrai cycle
+            de développement : recueil des besoins, rédaction du backlog, sprints, livraisons intermédiaires et
+            ajustements selon les retours.</p>
+          <p><strong>Mon rôle :</strong> J'ai participé à toutes les phases du cycle : j'ai contribué à l'analyse des
+            besoins lors des échanges avec le client (Legrand), à la rédaction et priorisation du backlog (découpage en
+            user stories, estimation), au développement itératif (frontend Vue.js / TypeScript, backend Node.js / API
+            REST), aux phases de test et aux ajustements post-retour client. J'ai eu un rôle actif dans la communication
+            avec le client pour clarifier les exigences et valider les livraisons.</p>
+          <div class="pp-reflex">
+            <h4>Analyse réflexive</h4>
+            <p>La principale difficulté a été que les besoins du client évoluaient au fil des livraisons : ce qui
+              semblait clair au départ se précisait (ou changeait) une fois que le client voyait une version concrète.
+              Cela m'a appris à ne pas « sur-coder » trop tôt et à livrer des versions fonctionnelles rapidement pour
+              valider les hypothèses. Sur le plan des softskills, ce projet a fortement développé mon sens de la
+              communication : savoir reformuler un besoin client en termes techniques, mais aussi expliquer une
+              contrainte technique à un non-développeur. Il a aussi renforcé mon organisation et ma capacité à prioriser
+              : face à un backlog qui grandit, il faut trancher et justifier ses choix.</p>
+          </div>
+        </div>
+      </section>
+      <section class="pp-sec reveal" style="padding:0">
+        <div class="pp-sec-head"><span class="idx">05</span>
+          <h2>Défis rencontrés</h2>
+        </div>
+        <p>Le principal défi était de concevoir un système de templates suffisamment flexible pour s'adapter aux
+          multiples types de documents nécessaires, tout en restant simple d'utilisation pour les employés. Il fallait
+          trouver le bon équilibre entre personnalisation et standardisation.</p>
+        <p>Un autre aspect complexe était la génération de documents PDF de haute qualité avec une mise en page
+          professionnelle. L'intégration de bibliothèques de génération de documents et l'optimisation des performances
+          pour des documents volumineux ont nécessité un travail approfondi.</p>
+      </section>
+      <section class="pp-sec reveal" style="padding:0">
+        <div class="pp-sec-head"><span class="idx">06</span>
+          <h2>Apprentissages</h2>
+        </div>
+        <p>Ce projet m'a permis de développer une expertise complète en développement full-stack moderne. J'ai
+          approfondi mes compétences en Vue.js et découvert les bonnes pratiques de développement avec ce framework,
+          notamment la gestion d'état, les composants réutilisables, et la composition API.</p>
+        <p>Côté backend, j'ai acquis de l'expérience dans la conception d'APIs REST robustes avec Node.js, la gestion de
+          l'authentification et des permissions, ainsi que l'optimisation des performances. Le travail en équipe et la
+          communication avec les utilisateurs finaux pour comprendre leurs besoins ont également été des aspects
+          enrichissants de ce projet professionnel.</p>
+      </section>
+      <section class="pp-sec reveal" style="padding:0">
+        <div class="pp-sec-head"><span class="idx">07</span>
+          <h2>Livrables</h2>
+        </div>
+        <div class="pp-deliv">
+          <a class="btn" href="https://github.com/Lamazaii/vytre" target="_blank" rel="noopener" data-hover>🔗 Code
+            source GitHub</a>
+          <a class="btn" href="https://github.com/Lamazaii/vytre/blob/main/README.md" target="_blank" rel="noopener"
+            data-hover>📄 README</a>
+        </div>
+      </section>
 
-    <script src="../js/script.js"></script>
+    </div>
+
+    <a class="pp-next" href="project-minijeux.html" data-hover>
+      <span>Projet suivant</span>
+      <b>MiniJeux</b>
+    </a>
+  </main>
+
+  <footer>
+    <span>© 2026 Yaël Betton</span>
+    <span>Nouvelle-Aquitaine, France</span>
+    <span>Portfolio personnel</span>
+  </footer>
+
+  <script src="../js/project.js"></script>
+
 </body>
+
 </html>

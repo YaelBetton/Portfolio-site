@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Yaël Betton</title>
+  <meta name="description" content="Portfolio de Yaël Betton, étudiant en BUT Informatique à l'IUT de Limoges, en recherche d'une alternance en troisième année, avec des projets en Java, Python, React Native et Vue.js.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script>try{if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light');}catch(e){}</script>
+</head>
+<body>
+<script>if(sessionStorage.getItem('preloaderDone')==='true')document.documentElement.classList.add('preloader-skip');</script>
+
+<!-- Préloader -->
+<div class="preloader" id="preloader">
+  <div class="preloader-name" id="preloaderName"></div>
+  <div class="preloader-bar"><i id="preloaderFill"></i></div>
+  <div class="preloader-alt" id="preloaderAlt">Développement en cours — 0%</div>
+  <div class="typing-scene" aria-hidden="true">
+    <div class="typing-laptop">
+      <i class="typing-screen"></i>
+      <div class="typing-keyboard">
+        <div class="k-row k-row--1">
+          <span class="key">1</span><span class="key">2</span><span class="key">3</span><span class="key">4</span><span class="key">5</span><span class="key">6</span><span class="key">7</span><span class="key">8</span><span class="key">9</span><span class="key">0</span><span class="key">-</span><span class="key">=</span><span class="key key--lg">del</span>
+        </div>
+        <div class="k-row k-row--2">
+          <span class="key key--md">tab</span><span class="key">q</span><span class="key">w</span><span class="key">e</span><span class="key">r</span><span class="key">t</span><span class="key">y</span><span class="key">u</span><span class="key">i</span><span class="key">o</span><span class="key">p</span><span class="key">[</span><span class="key">]</span>
+        </div>
+        <div class="k-row k-row--3">
+          <span class="key key--lg">caps</span><span class="key">a</span><span class="key">s</span><span class="key">d</span><span class="key">f</span><span class="key">g</span><span class="key">h</span><span class="key">j</span><span class="key">k</span><span class="key">l</span><span class="key">;</span><span class="key key--lg">enter</span>
+        </div>
+        <div class="k-row k-row--4">
+          <span class="key key--xl">shift</span><span class="key">z</span><span class="key">x</span><span class="key">c</span><span class="key">v</span><span class="key">b</span><span class="key">n</span><span class="key">m</span><span class="key">,</span><span class="key">.</span><span class="key">/</span><span class="key key--xl">shift</span>
+        </div>
+        <div class="k-row k-row--5">
+          <span class="key key--md">ctrl</span><span class="key key--md">alt</span><span class="key key--space"></span><span class="key key--md">alt</span><span class="key key--md">ctrl</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Rideau de transition -->
+<div class="wipe" id="wipe" aria-hidden="true">
+  <div class="wipe-bg"></div>
+  <div class="wipe-inner">
+    <span class="wipe-kicker">01 — En approche</span>
+    <span class="wipe-mask"><span class="wipe-title">À propos</span></span>
+    <i class="wipe-line"></i>
+  </div>
+</div>
+
+<!-- Curseur -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+    <a class="nav-logo" href="#hero" data-hover>YB</a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#apropos" data-hover>À propos</a></li>
+      <li><a href="#parcours" data-hover>Parcours</a></li>
+      <li><a href="#competences" data-hover>Compétences</a></li>
+      <li><a href="#projets" data-hover>Projets</a></li>
+      <li><a href="#contact" data-hover>Contact</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeToggle" type="button" data-hover aria-label="Basculer entre mode clair et mode sombre">
+      <i class="tt-dot" aria-hidden="true"></i><span class="tt-txt">Jour</span>
+    </button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero" id="hero">
+  <canvas id="terrain"></canvas>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Développeur / Concepteur d'applications</div>
+    <h1 class="hero-title" id="heroTitle">
+      <span class="line"><span>Yaël</span></span>
+      <span class="line"><span class="accent">Betton</span></span>
+    </h1>
+    <p class="hero-sub">Étudiant en seconde année à l'IUT du Limousin, je suis en recherche d'une alternance pour ma troisième année de BUT Informatique.</p>
+    <div class="hero-cta">
+      <a href="#parcours" class="btn btn--solid" data-hover data-magnetic>Mon parcours</a>
+      <a href="#contact" class="btn" data-hover data-magnetic>Me contacter</a>
+    </div>
+    <div class="hero-scroll"><i></i> Survoler</div>
+  </div>
+  <div class="hero-footer">
+    <div class="marquee hero-marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-group">
+          <span>JavaScript</span><span>React Native</span><span>HTML / CSS</span><span>TypeScript</span><span>Vue.js</span><span>Node.js</span><span>PHP</span><span>Python</span><span>Java</span><span>SQL / PostgreSQL</span>
+        </div>
+        <div class="marquee-group" aria-hidden="true">
+          <span>JavaScript</span><span>React Native</span><span>HTML / CSS</span><span>TypeScript</span><span>Vue.js</span><span>Node.js</span><span>PHP</span><span>Python</span><span>Java</span><span>SQL / PostgreSQL</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- À propos -->
+<section id="apropos">
+  <div class="sec-head reveal">
+    <span class="sec-index">01</span>
+    <h2 class="sec-title">À propos</h2>
+    <span class="sec-line"></span>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p class="reveal">Étudiant en deuxième année de BUT Informatique à l'IUT de Limoges, je suis passionné par le développement d'applications et la programmation.</p>
+      <p class="reveal reveal-d1">Au fil de mes projets académiques et personnels, j'ai acquis des compétences en Python, Java, PHP, SQL, React Native, JavaScript, HTML/CSS, que j'ai mises en pratique à travers des réalisations variées, comme la création d'un jeu en Java/JavaFX ou d'une application mobile en React Native permettant de scanner des codes-barres et d'afficher des informations produits.</p>
+      <p class="reveal reveal-d2">J'aime concevoir des solutions qui allient clarté, efficacité et qualité de code, tout en restant attentif aux besoins des utilisateurs. Mon objectif est de continuer à apprendre et à contribuer à des projets concrets, aussi bien dans un cadre académique que professionnel.</p>
+    </div>
+    <div class="about-stats reveal reveal-d2">
+      <div class="stat"><b><em data-count="15">0</em>+</b><span>Projets réalisés</span></div>
+      <div class="stat"><b><em data-count="2">0</em>+</b><span>Années d'expérience</span></div>
+      <div class="stat"><b><em data-count="10">0</em>+</b><span>Langages maitrisés</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Parcours: galerie horizontale sticky (défilement latéral) -->
+<section class="projects" id="parcours">
+  <div class="gal" id="gal">
+    <div class="gal-pin">
+      <div class="sec-head">
+        <span class="sec-index">02</span>
+        <h2 class="sec-title">Parcours</h2>
+        <span class="sec-line"></span>
+      </div>
+      <div class="gal-track" id="galTrack">
+        <a class="gal-item" href="#" data-hover>
+          <span class="gal-caption"><span>Lycée</span><span>Filière Générale</span></span>
+          <span class="gal-media"><img src="images/bac.jpg" alt="Baccalauréat illustration"><span class="gal-number">01</span></span>
+          <span class="gal-title">Baccalauréat — Mathématiques & NSI <i>→</i></span>
+        </a>
+
+        <a class="gal-item" href="#" data-hover>
+          <span class="gal-caption"><span>Études</span><span>BUT Informatique 1ère année</span></span>
+          <span class="gal-media"><img src="images/etude.avif" alt="BUT Informatique 1ère année illustration"><span class="gal-number">02</span></span>
+          <span class="gal-title">BUT Informatique 1ère année <i>→</i></span>
+        </a>
+
+        <a class="gal-item" href="#" data-hover>
+          <span class="gal-caption"><span>Études</span><span>S.A.E</span></span>
+          <span class="gal-media"><img src="images/latice_jeu.webp" alt="Projet SAE Latice illustration"><span class="gal-number">03</span></span>
+          <span class="gal-title">Projet Latice <i>→</i></span>
+        </a>
+
+        <a class="gal-item" href="#" data-hover>
+          <span class="gal-caption"><span>Études</span><span>BUT Informatique 2ème année</span></span>
+          <span class="gal-media"><img src="images/etude.avif" alt="BUT Informatique 2ème année illustration"><span class="gal-number">04</span></span>
+          <span class="gal-title">BUT Informatique 2ème année <i>→</i></span>
+        </a>
+
+        <a class="gal-item" href="#" data-hover>
+          <span class="gal-caption"><span>Études</span><span>LeGrand</span></span>
+          <span class="gal-media"><img src="images/legrand.jpg" alt="Travail collaboratif LeGrand illustration"><span class="gal-number">05</span></span>
+          <span class="gal-title">Travail collaboratif avec LeGrand <i>→</i></span>
+        </a>
+
+        <a class="gal-item" href="#" data-hover>
+          <span class="gal-caption"><span>Stage</span><span>Limoges Habitat</span></span>
+          <span class="gal-media"><img src="images/limogeshabitat.avif" alt="Stage Limoges Habitat illustration"><span class="gal-number">06</span></span>
+          <span class="gal-title">Stage Limoges Habitat <i>→</i></span>
+        </a>
+
+        <a class="gal-item" href="#" data-hover>
+          <span class="gal-caption"><span>En cours</span><span>BUT 3 Informatique</span></span>
+          <span class="gal-media"><img src="images/etude.avif" alt="BUT 3 Informatique illustration"><span class="gal-number">07</span></span>
+          <span class="gal-title">BUT 3 Informatique <i>→</i></span>
+        </a>
+
+        <a class="gal-item" href="#" data-hover>
+          <span class="gal-caption"><span>Recherche</span><span>Alternance BUT 3</span></span>
+          <span class="gal-media"><img src="images/alternance.jfif" alt="Recherche alternance illustration"><span class="gal-number">08</span></span>
+          <span class="gal-title">Recherche alternance <i>→</i></span>
+        </a>
+      </div>
+      <div class="gal-foot">
+        <div class="gal-count"><b id="galCur">01</b> / <span id="galTot">08</span></div>
+        <div class="gal-progress"><i id="galProg"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Projets : éventail de cartes (clic = page détaillée du projet) -->
+<section id="projets">
+  <div class="sec-head reveal">
+    <span class="sec-index">04</span>
+    <h2 class="sec-title">Projets</h2>
+    <span class="sec-line"></span>
+  </div>
+  <div class="fan reveal" id="fan">
+    <a class="fan-card" href="pages/project-latice.html" data-hover>
+      <span class="fan-bg" style="background-image:url('images/latice_jeu.webp')"></span>
+      <span class="fan-tint"></span>
+      <span class="fan-top"><span class="num">01</span><span>Java · JavaFX</span></span>
+      <span class="fan-info">
+        <b>Latice</b>
+        <i>Jeu de plateau — BUT 1</i>
+        <em>Voir le projet →</em>
+      </span>
+    </a>
+    <a class="fan-card" href="pages/project-yuka.html" data-hover>
+      <span class="fan-bg" style="background-image:url('images/application_yuka.webp')"></span>
+      <span class="fan-tint"></span>
+      <span class="fan-top"><span class="num">02</span><span>React Native</span></span>
+      <span class="fan-info">
+        <b>Yuka Clone</b>
+        <i>Application mobile — Perso</i>
+        <em>Voir le projet →</em>
+      </span>
+    </a>
+    <a class="fan-card" href="pages/project-legrand.html" data-hover>
+      <span class="fan-bg" style="background-image:url('images/conduireprojet_image.webp')"></span>
+      <span class="fan-tint"></span>
+      <span class="fan-top"><span class="num">03</span><span>Vue.js · Node</span></span>
+      <span class="fan-info">
+        <b>LeGrand</b>
+        <i>Application web — Client réel</i>
+        <em>Voir le projet →</em>
+      </span>
+    </a>
+    <a class="fan-card" href="pages/project-minijeux.html" data-hover>
+      <span class="fan-bg" style="background-image:url('images/morpion_jeu.webp')"></span>
+      <span class="fan-tint"></span>
+      <span class="fan-top"><span class="num">04</span><span>Python · IA</span></span>
+      <span class="fan-info">
+        <b>MiniJeux</b>
+        <i>Collection de jeux — BUT 1</i>
+        <em>Voir le projet →</em>
+      </span>
+    </a>
+    <a class="fan-card" href="pages/project-debian.html" data-hover>
+      <span class="fan-bg" style="background-image:url('images/reseau_image.webp')"></span>
+      <span class="fan-tint"></span>
+      <span class="fan-top"><span class="num">05</span><span>Debian · Bash</span></span>
+      <span class="fan-info">
+        <b>Environnement Debian</b>
+        <i>Admin système — SAE S1.03</i>
+        <em>Voir le projet →</em>
+      </span>
+    </a>
+    <a class="fan-card" href="pages/project-limoges-habitat.html" data-hover>
+      <span class="fan-bg" style="background-image:url('images/limogeshabitat.avif')"></span>
+      <span class="fan-tint"></span>
+      <span class="fan-top"><span class="num">06</span><span>Stage</span></span>
+      <span class="fan-info">
+        <b>Limoges Habitat</b>
+        <i>Stage — À venir</i>
+        <em>Voir le projet →</em>
+      </span>
+    </a>
+  </div>
+
+  <!-- Compétences : accordéon typographique (clic pour déployer) -->
+    <div class="sk-row">
+      <button class ="sk-head-premier" type="button" data-hover>
+        <span class="sk-idx">01</span>
+        <span class="sk-name">Frontend</span>
+        <span class="sk-count">5 technologies</span>
+        <span class="sk-plus" aria-hidden="true"></span>
+      </button>
+      <div class="sk-body">
+        <div class="sk-body-in">
+          <div class="sk-grid">
+            <div class="sk-item" data-hover><b>JavaScript</b><span>Interactions & animations</span></div>
+            <div class="sk-item" data-hover><b>React Native</b><span>Yuka Clone — mobile</span></div>
+            <div class="sk-item" data-hover><b>HTML / CSS</b><span>Intégration — ce portfolio</span></div>
+            <div class="sk-item" data-hover><b>TypeScript</b><span>LeGrand — typage fort</span></div>
+            <div class="sk-item" data-hover><b>Vue.js</b><span>LeGrand — interface client</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sk-row">
+      <button class="sk-head" type="button" data-hover>
+        <span class="sk-idx">02</span>
+        <span class="sk-name">Backend</span>
+        <span class="sk-count">5 technologies</span>
+        <span class="sk-plus" aria-hidden="true"></span>
+      </button>
+      <div class="sk-body">
+        <div class="sk-body-in">
+          <div class="sk-grid">
+            <div class="sk-item" data-hover><b>Node.js</b><span>LeGrand — API REST</span></div>
+            <div class="sk-item" data-hover><b>PHP</b><span>Formulaire de contact</span></div>
+            <div class="sk-item" data-hover><b>Python</b><span>MiniJeux — Minimax</span></div>
+            <div class="sk-item" data-hover><b>Java</b><span>Latice — JavaFX</span></div>
+            <div class="sk-item" data-hover><b>SQL / PostgreSQL</b><span>Bases de données</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sk-row">
+      <button class="sk-head" type="button" data-hover>
+        <span class="sk-idx">03</span>
+        <span class="sk-name">Outils</span>
+        <span class="sk-count">5 outils</span>
+        <span class="sk-plus" aria-hidden="true"></span>
+      </button>
+      <div class="sk-body">
+        <div class="sk-body-in">
+          <div class="sk-grid">
+            <div class="sk-item" data-hover><b>Git / GitHub</b><span>Tous les projets</span></div>
+            <div class="sk-item" data-hover><b>Docker</b><span>Conteneurisation</span></div>
+            <div class="sk-item" data-hover><b>VS Code</b><span>Éditeur principal</span></div>
+            <div class="sk-item" data-hover><b>Figma</b><span>Maquettes UI</span></div>
+            <div class="sk-item" data-hover><b>Eclipse</b><span>Projets Java</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sk-row">
+      <button class="sk-head" type="button" data-hover>
+        <span class="sk-idx">04</span>
+        <span class="sk-name">Compléments</span>
+        <span class="sk-count">3 domaines</span>
+        <span class="sk-plus" aria-hidden="true"></span>
+      </button>
+      <div class="sk-body">
+        <div class="sk-body-in">
+          <div class="sk-grid">
+            <div class="sk-item" data-hover><b>JavaFX</b><span>Latice — interface jeu</span></div>
+            <div class="sk-item" data-hover><b>Bash / Linux</b><span>SAE Debian — scripts</span></div>
+            <div class="sk-item" data-hover><b>Programmation orientée objet</b><span>Architecture MVC</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Passions -->
+<section class="hobbies" id="passions">
+  <div class="sec-head reveal">
+    <span class="sec-index">05</span>
+    <h2 class="sec-title">En dehors du code</h2>
+    <span class="sec-line"></span>
+  </div>
+  <div class="hobby-grid">
+    <div class="hobby reveal" data-hover>
+      <span class="hobby-ico">🎥</span>
+      <h3>Pilotage de drones</h3>
+      <p>Le pilotage de drones FPV est pour moi bien plus qu’un simple loisir : c’est une réelle passion. J'aime particulièrement l’aspect 'do-it-yourself' : je monte mes propres machines, ce qui me donne une compréhension profonde de leur fonctionnement interne. C’est le pont idéal entre ma curiosité technique et mon envie de créer. Aujourd'hui, je m'investis également dans le montage vidéo pour donner une dimension artistique à mes vols et partager cette expérience immersive.</p>
+    </div>
+    <div class="hobby reveal reveal-d1" data-hover>
+      <span class="hobby-ico">⚽</span>
+      <h3>Sport</h3>
+      <p>En dehors de mes projets techniques, je suis un grand passionné de sport. Je pratique régulièrement le vélo, le basket, la musculation et la course à pied, pour laquelle je prépare actuellement un marathon. Ces activités sont pour moi le moyen idéal de décompresser et de garder les idées claires après des sessions de travail intenses.</p>
+    </div>
+    <div class="hobby reveal reveal-d2" data-hover>
+      <span class="hobby-ico">🎮</span>
+      <h3>Jeux vidéo</h3>
+      <p>Stratégie, réflexion, mondes ouverts. Je m'y intéresse autant comme joueur que comme étudiant en informatique : j'aime déplier la logique derrière les mécaniques, l'architecture des jeux modernes, comment tout s'articule ensemble.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <div class="contact-grid reveal">
+    <div class="contact-panel">
+      <h2 class="contact-title">Pour me contacter</h2>
+      <div class="social-links social-links--top">
+        <a href="https://github.com/YaelBetton" target="_blank" rel="noopener" class="social-link">GitHub</a>
+        <a href="https://www.linkedin.com/in/yael-betton-a30652383/" target="_blank" rel="noopener" class="social-link">LinkedIn</a>
+      </div>
+      <div class="contact-details">
+        <div class="contact-item">
+          <span class="contact-label">Email</span>
+          <a href="mailto:yaelbetton@gmail.com">yaelbetton@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">Localisation</span>
+          <span>Nouvelle-Aquitaine, France</span>
+        </div>
+      </div>
+    </div>
+
+    <form class="contact-form reveal reveal-d1" action="contact.php" method="POST" novalidate>
+      <div id="contact-message" class="contact-message" aria-live="polite"></div>
+      <input type="text" name="website" autocomplete="off" tabindex="-1" class="honeypot">
+      <div class="form-group">
+        <input type="text" id="name" name="name" placeholder="Votre nom" required>
+      </div>
+      <div class="form-group">
+        <input type="email" id="email" name="email" placeholder="Votre email" required>
+      </div>
+      <div class="form-group">
+        <input type="text" id="subject" name="subject" placeholder="Sujet" required>
+      </div>
+      <div class="form-group">
+        <textarea id="message" name="message" rows="6" placeholder="Votre message" required></textarea>
+      </div>
+      <button type="submit" class="btn btn--solid">Envoyer le message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Yaël Betton</span>
+  <span>Nouvelle-Aquitaine, France</span>
+  <span>Portfolio personnel</span>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>

@@ -1,157 +1,178 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuka Clone - Portfolio Yaël Betton</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yuka Clone — Portfolio Yaël Betton</title>
+  <meta name="description"
+    content="Clone de l'application Yuka en React Native / TypeScript : scan de codes-barres, analyse nutritionnelle et alternatives plus saines via Open Food Facts.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script>try { if (localStorage.getItem('theme') === 'light') document.documentElement.classList.add('light'); } catch (e) { }</script>
 </head>
+
 <body>
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="../index.html">YB</a>
-            </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item">
-                    <a href="../index.html#home" class="nav-link">Accueil</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../index.html#about" class="nav-link">À propos de moi</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../index.html#skills" class="nav-link">Langages maîtrisés</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../index.html#projects" class="nav-link">Projets</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../index.html#contact" class="nav-link">Contact</a>
-                </li>
-            </ul>
-            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
-                <span>🌙</span>
-            </button>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+
+  <!-- Curseur -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <a class="nav-logo" href="../portfolio-yael-betton_2.html" data-hover>YB</a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="../portfolio-yael-betton_2.html#projets" data-hover>Tous les projets</a></li>
+        <li><a href="../portfolio-yael-betton_2.html#contact" data-hover>Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" type="button" data-hover
+        aria-label="Basculer entre mode clair et mode sombre">
+        <i class="tt-dot" aria-hidden="true"></i><span class="tt-txt">Jour</span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="pp-main">
+    <div class="pp-hero">
+      <a class="pp-back" href="../portfolio-yael-betton_2.html#projets" data-hover>← Retour aux projets</a>
+      <div class="pp-eyebrow">Application mobile · Projet personnel</div>
+      <h1 class="pp-title">Yuka <span class="accent">Clone</span></h1>
+      <div class="pp-tech"><span>React Native</span><span>TypeScript</span><span>Open Food Facts</span></div>
+    </div>
+
+    <div class="pp-cover reveal">
+      <div class="pp-cover-in"><img src="../images/application_yuka.webp"
+          alt="Clone de l'application Yuka en React Native"></div>
+    </div>
+
+    <div class="pp-body">
+      <section class="pp-sec reveal" style="padding:0">
+        <div class="pp-sec-head"><span class="idx">01</span>
+          <h2>Aperçu du projet</h2>
         </div>
-    </nav>
-
-    <section class="project-detail">
-        <div class="container">
-            <div class="project-detail-header">
-                <a href="../index.html#projects" class="back-link">← Retour aux projets</a>
-                <h1 class="project-detail-title">Yuka Clone</h1>
-                <div class="project-detail-meta">
-                    <span class="project-tech">React Native</span>
-                    <span class="project-tech">TypeScript</span>
-                </div>
-            </div>
-
-            <div class="project-detail-image">
-                <img src="../images/LogoYuka.webp" alt="Logo Yuka">
-            </div>
-
-            <div class="project-detail-content">
-                <div class="project-detail-section">
-                    <h2>Aperçu du projet</h2>
-                    <p>
-                        Cette application mobile développée avec React Native est un clone de l'application Yuka, qui permet aux utilisateurs 
-                        de scanner le code-barres d'un produit alimentaire pour obtenir instantanément des informations détaillées sur sa 
-                        composition et sa qualité nutritionnelle.
-                    </p>
-                    <p>
-                        L'application fournit une note de qualité basée sur plusieurs critères : les valeurs nutritionnelles (calories, 
-                        graisses, sucres, sel), la présence d'additifs potentiellement nocifs, et la qualité générale des ingrédients. 
-                        Elle propose également des alternatives plus saines pour aider les utilisateurs à faire des choix alimentaires 
-                        plus conscients au quotidien.
-                    </p>
-                </div>
-
-                <div class="project-detail-section">
-                    <h2>Fonctionnalités principales</h2>
-                    <ul class="feature-list">
-                        <li>Scanner de code-barres utilisant la caméra du smartphone pour une reconnaissance rapide et précise</li>
-                        <li>Affichage détaillé des informations nutritionnelles et de la liste complète des ingrédients</li>
-                        <li>Système de notation visuelle avec code couleur (excellent, bon, moyen, mauvais)</li>
-                        <li>Analyse détaillée des additifs présents dans le produit avec leur niveau de risque</li>
-                        <li>Suggestions d'alternatives plus saines dans la même catégorie de produits</li>
-                        <li>Historique des produits scannés pour un suivi personnalisé</li>
-                        <li>Interface responsive et intuitive optimisée pour mobile</li>
-                    </ul>
-                </div>
-
-                <div class="project-detail-section">
-                    <h2>Technologies utilisées</h2>
-                    <p>
-                        Le projet est développé avec <strong>React Native</strong>, un framework permettant de créer des applications 
-                        mobiles natives pour iOS et Android à partir d'une base de code unique. L'utilisation de <strong>TypeScript</strong> 
-                        apporte une sécurité de typage qui facilite la maintenance et réduit les erreurs potentielles.
-                    </p>
-                    <p>
-                        L'application s'appuie sur l'API Open Food Facts pour récupérer les données des produits. La caméra est gérée 
-                        via des bibliothèques natives React Native pour garantir des performances optimales lors du scan des codes-barres.
-                    </p>
-                </div>
-
-                <div class="project-detail-section">
-                    <h2>Compétences BUT démontrées</h2>
-                    
-                    <div class="competence-block">
-                        <h3>C1 : Réaliser un développement d'application</h3>
-                        <span class="comp-ac">AC11.04 – Développer des interfaces utilisateur</span>
-                        <p><strong>Description :</strong> Dans le cadre d'un projet personnel, j'ai développé un clone de l'application Yuka en React Native et TypeScript. L'objectif était de concevoir une interface mobile complète permettant à l'utilisateur de scanner un code-barres et d'obtenir instantanément les informations nutritionnelles d'un produit alimentaire (score de qualité, additifs, alternatives plus saines). L'application devait être fluide, intuitive et fonctionnelle sur iOS et Android à partir d'une base de code unique.</p>
-                        <p><strong>Rôle personnel :</strong> J'ai conçu et développé l'intégralité de l'interface utilisateur : la page d'accueil, l'écran de scan via la caméra native, l'affichage des données nutritionnelles avec un code couleur visuel (excellent / bon / moyen / mauvais), la liste des additifs avec leur niveau de risque, et les suggestions d'alternatives. J'ai respecté les guidelines Material Design et iOS pour garantir une expérience cohérente selon la plateforme. La gestion asynchrone des appels à l'API Open Food Facts a également été intégrée avec retours visuels (chargement, erreur, données incomplètes).</p>
-                        <div class="analyse-reflexive">
-                            <h4>Analyse réflexive</h4>
-                            <p>Le principal défi était de transformer des données brutes parfois incomplètes (produits mal renseignés dans Open Food Facts) en une interface claire et compréhensible pour n'importe quel utilisateur. Cela m'a appris à toujours penser du point de vue de l'utilisateur final, pas seulement du point de vue technique. Sur le plan des softskills, ce projet a développé ma rigueur (gérer tous les cas limites d'affichage) et ma capacité d'adaptation : les données de l'API étaient imprévisibles, il fallait sans cesse ajuster l'interface pour rester lisible. J'ai aussi renforcé mon sens de l'esthétique et de l'ergonomie, conscient qu'une bonne application, c'est avant tout une application qu'on comprend en trois secondes.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-detail-section">
-                    <h2>Défis rencontrés</h2>
-                    <p>
-                        L'un des principaux défis était l'intégration fluide du scanner de code-barres avec les fonctionnalités natives 
-                        du smartphone. Il a fallu gérer les permissions d'accès à la caméra et optimiser la reconnaissance des codes pour 
-                        qu'elle soit rapide et fiable même dans des conditions d'éclairage difficiles.
-                    </p>
-                    <p>
-                        Un autre aspect complexe était le traitement et l'affichage des données nutritionnelles de manière claire et 
-                        compréhensible. Il fallait transformer des données brutes parfois incomplètes en informations visuelles facilement 
-                        interprétables par l'utilisateur.
-                    </p>
-                </div>
-
-                <div class="project-detail-section">
-                    <h2>Apprentissages</h2>
-                    <p>
-                        Ce projet m'a permis de maîtriser le développement d'applications mobiles avec React Native et TypeScript. 
-                        J'ai appris à gérer les spécificités du développement mobile, notamment l'accès aux fonctionnalités natives 
-                        comme la caméra, la gestion des permissions, et l'optimisation des performances.
-                    </p>
-                    <p>
-                        L'intégration d'APIs externes, la gestion d'états complexes avec React Hooks, et la création d'une expérience 
-                        utilisateur intuitive sur mobile ont été des compétences clés développées durant ce projet.
-                    </p>
-                </div>
-
-                <div class="project-detail-links">
-                    <a href="https://github.com/YaelBetton/Yuka-android-clone" class="btn-primary" target="_blank" rel="noopener noreferrer">
-                        Voir le code source
-                    </a>
-                    <a href="https://github.com/YaelBetton/Yuka-android-clone/blob/main/README.md" class="btn-secondary" target="_blank" rel="noopener noreferrer">
-                        Documentation complète
-                    </a>
-                </div>
-            </div>
+        <p>Cette application mobile développée avec React Native est un clone de l'application Yuka, qui permet aux
+          utilisateurs de scanner le code-barres d'un produit alimentaire pour obtenir instantanément des informations
+          détaillées sur sa composition et sa qualité nutritionnelle.</p>
+        <p>L'application fournit une note de qualité basée sur plusieurs critères : les valeurs nutritionnelles
+          (calories, graisses, sucres, sel), la présence d'additifs potentiellement nocifs, et la qualité générale des
+          ingrédients. Elle propose également des alternatives plus saines pour aider les utilisateurs à faire des choix
+          alimentaires plus conscients au quotidien.</p>
+      </section>
+      <section class="pp-sec reveal" style="padding:0">
+        <div class="pp-sec-head"><span class="idx">02</span>
+          <h2>Fonctionnalités principales</h2>
         </div>
-    </section>
+        <ul class="pp-list">
+          <li>Scanner de code-barres utilisant la caméra du smartphone pour une reconnaissance rapide et précise</li>
+          <li>Affichage détaillé des informations nutritionnelles et de la liste complète des ingrédients</li>
+          <li>Système de notation visuelle avec code couleur (excellent, bon, moyen, mauvais)</li>
+          <li>Analyse détaillée des additifs présents dans le produit avec leur niveau de risque</li>
+          <li>Suggestions d'alternatives plus saines dans la même catégorie de produits</li>
+          <li>Historique des produits scannés pour un suivi personnalisé</li>
+          <li>Interface responsive et intuitive optimisée pour mobile</li>
+        </ul>
+      </section>
+      <section class="pp-sec reveal" style="padding:0">
+        <div class="pp-sec-head"><span class="idx">03</span>
+          <h2>Technologies utilisées</h2>
+        </div>
+        <p>Le projet est développé avec <strong>React Native</strong>, un framework permettant de créer des applications
+          mobiles natives pour iOS et Android à partir d'une base de code unique. L'utilisation de
+          <strong>TypeScript</strong> apporte une sécurité de typage qui facilite la maintenance et réduit les erreurs
+          potentielles.</p>
+        <p>L'application s'appuie sur l'API Open Food Facts pour récupérer les données des produits. La caméra est gérée
+          via des bibliothèques natives React Native pour garantir des performances optimales lors du scan des
+          codes-barres.</p>
+      </section>
+      <section class="pp-sec reveal" style="padding:0">
+        <div class="pp-sec-head"><span class="idx">04</span>
+          <h2>Compétence BUT démontrée</h2>
+        </div>
+        <div class="pp-comp">
+          <span class="pp-ac">C1 : Réaliser un développement d'application — AC11.04 · Développer des interfaces
+            utilisateur</span>
+          <h3>Yuka Clone — Application mobile React Native / TypeScript</h3>
+          <span class="pp-level">Niveau estimé : <b>4</b> — Autonomie</span>
+          <p><strong>Description :</strong> Dans le cadre d'un projet personnel, j'ai développé un clone de
+            l'application Yuka en React Native et TypeScript. L'objectif était de concevoir une interface mobile
+            complète permettant à l'utilisateur de scanner un code-barres et d'obtenir instantanément les informations
+            nutritionnelles d'un produit alimentaire (score de qualité, additifs, alternatives plus saines).
+            L'application devait être fluide, intuitive et fonctionnelle sur iOS et Android à partir d'une base de code
+            unique.</p>
+          <p><strong>Mon rôle :</strong> J'ai conçu et développé l'intégralité de l'interface utilisateur : la page
+            d'accueil, l'écran de scan via la caméra native, l'affichage des données nutritionnelles avec un code
+            couleur visuel (excellent / bon / moyen / mauvais), la liste des additifs avec leur niveau de risque, et les
+            suggestions d'alternatives. J'ai respecté les guidelines Material Design et iOS pour garantir une expérience
+            cohérente selon la plateforme. La gestion asynchrone des appels à l'API Open Food Facts a également été
+            intégrée avec retours visuels (chargement, erreur, données incomplètes).</p>
+          <div class="pp-reflex">
+            <h4>Analyse réflexive</h4>
+            <p>Le principal défi était de transformer des données brutes parfois incomplètes (produits mal renseignés
+              dans Open Food Facts) en une interface claire et compréhensible pour n'importe quel utilisateur. Cela m'a
+              appris à toujours penser du point de vue de l'utilisateur final, pas seulement du point de vue technique.
+              Sur le plan des softskills, ce projet a développé ma rigueur (gérer tous les cas limites d'affichage) et
+              ma capacité d'adaptation : les données de l'API étaient imprévisibles, il fallait sans cesse ajuster
+              l'interface pour rester lisible. J'ai aussi renforcé mon sens de l'esthétique et de l'ergonomie, conscient
+              qu'une bonne application, c'est avant tout une application qu'on comprend en trois secondes.</p>
+          </div>
+        </div>
+      </section>
+      <section class="pp-sec reveal" style="padding:0">
+        <div class="pp-sec-head"><span class="idx">05</span>
+          <h2>Défis rencontrés</h2>
+        </div>
+        <p>L'un des principaux défis était l'intégration fluide du scanner de code-barres avec les fonctionnalités
+          natives du smartphone. Il a fallu gérer les permissions d'accès à la caméra et optimiser la reconnaissance des
+          codes pour qu'elle soit rapide et fiable même dans des conditions d'éclairage difficiles.</p>
+        <p>Un autre aspect complexe était le traitement et l'affichage des données nutritionnelles de manière claire et
+          compréhensible. Il fallait transformer des données brutes parfois incomplètes en informations visuelles
+          facilement interprétables par l'utilisateur.</p>
+      </section>
+      <section class="pp-sec reveal" style="padding:0">
+        <div class="pp-sec-head"><span class="idx">06</span>
+          <h2>Apprentissages</h2>
+        </div>
+        <p>Ce projet m'a permis de maîtriser le développement d'applications mobiles avec React Native et TypeScript.
+          J'ai appris à gérer les spécificités du développement mobile, notamment l'accès aux fonctionnalités natives
+          comme la caméra, la gestion des permissions, et l'optimisation des performances.</p>
+        <p>L'intégration d'APIs externes, la gestion d'états complexes avec React Hooks, et la création d'une expérience
+          utilisateur intuitive sur mobile ont été des compétences clés développées durant ce projet.</p>
+      </section>
+      <section class="pp-sec reveal" style="padding:0">
+        <div class="pp-sec-head"><span class="idx">07</span>
+          <h2>Livrables</h2>
+        </div>
+        <div class="pp-deliv">
+          <a class="btn" href="https://github.com/YaelBetton/Yuka-android-clone" target="_blank" rel="noopener"
+            data-hover>🔗 Code source GitHub</a>
+          <a class="btn" href="https://github.com/YaelBetton/Yuka-android-clone/blob/main/README.md" target="_blank"
+            rel="noopener" data-hover>📄 README</a>
+        </div>
+      </section>
 
-    <script src="../js/script.js"></script>
+    </div>
+
+    <a class="pp-next" href="project-legrand.html" data-hover>
+      <span>Projet suivant</span>
+      <b>LeGrand</b>
+    </a>
+  </main>
+
+  <footer>
+    <span>© 2026 Yaël Betton</span>
+    <span>Nouvelle-Aquitaine, France</span>
+    <span>Portfolio personnel</span>
+  </footer>
+
+  <script src="../js/project.js"></script>
+
 </body>
+
 </html>
